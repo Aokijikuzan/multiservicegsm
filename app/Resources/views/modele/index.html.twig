@@ -1,19 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <h1>Modeles list</h1>
+{% block body %} 
+   {% include '::menuAction.html.twig' %} 
+    <h1>liste des modeles </h1>
 
-    <table>
+    <table class="table table-striped table-bordered" style="border: 15px solid grey; border-spacing:10px;">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nommodele</th>
-                <th>Actions</th>
+            <tr style="text-align:center;">
+                <th scope="row"  style=" border:1px solid grey;"></th>
+                <th style="text-align:auto;">Id</th>
+                <th style="text-align:center;">Nommodele</th>
+                <th style="text-align:center;">Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for modele in modeles %}
-            <tr>
+            <tr  style="text-align:center;">
+                <th scope="row" style=" border:1px solid grey;"></th>
                 <td><a href="{{ path('modele_show', { 'id': modele.id }) }}">{{ modele.id }}</a></td>
                 <td>{{ modele.nomModele }}</td>
                 <td>
@@ -36,4 +39,6 @@
             <a href="{{ path('modele_new') }}">Create a new modele</a>
         </li>
     </ul>
+    {% include '::footer.html.twig' %}
 {% endblock %}
+

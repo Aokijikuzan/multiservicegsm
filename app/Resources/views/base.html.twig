@@ -8,8 +8,8 @@
         <title>{% block title %}Multi Service Gsm{% endblock %}</title>
         {% stylesheets '@bootstrap_css' %}
 			<link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>
-			<link rel="stylesheet" href="css/footer-distributed-address-and-phones.css"/>
-			<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css"/>
+			<link rel="stylesheet" href="{{ asset('css/footer-distributed-address-and-phones.css') }}"/>
+			<link href="{{ asset ('http://fonts.googleapis.com/css?family=Cookie') }}" rel="stylesheet" type="text/css"/>
 			<link rel="stylesheet" href="css/page-acceuil.css"/>	
 		{% endstylesheets %}
 		{% stylesheets '@font_awesome_css' %}
