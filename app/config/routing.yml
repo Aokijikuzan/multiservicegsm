@@ -1,0 +1,9 @@
+multi_service_gsm_front:
+    resource: "@MultiServiceGsmFrontBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+

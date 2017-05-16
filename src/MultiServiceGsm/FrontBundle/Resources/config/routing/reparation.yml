@@ -1,0 +1,24 @@
+Reparation_index:
+    path:     /
+    defaults: { _controller: "MultiServiceGsmFrontBundle:Reparation:index" }
+    methods:  GET
+
+Reparation_show:
+    path:     /{id}/show
+    defaults: { _controller: "MultiServiceGsmFrontBundle:Reparation:show" }
+    methods:  GET
+
+Reparation_new:
+    path:     /new
+    defaults: { _controller: "MultiServiceGsmFrontBundle:Reparation:new" }
+    methods:  [GET, POST]
+
+Reparation_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MultiServiceGsmFrontBundle:Reparation:edit" }
+    methods:  [GET, POST]
+
+Reparation_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MultiServiceGsmFrontBundle:Reparation:delete" }
+    methods:  DELETE

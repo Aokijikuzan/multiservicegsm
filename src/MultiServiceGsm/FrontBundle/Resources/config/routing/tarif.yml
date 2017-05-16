@@ -1,0 +1,24 @@
+tarif_index:
+    path:     /
+    defaults: { _controller: "MultiServiceGsmFrontBundle:Tarif:index" }
+    methods:  GET
+
+tarif_show:
+    path:     /{id}/show
+    defaults: { _controller: "MultiServiceGsmFrontBundle:Tarif:show" }
+    methods:  GET
+
+tarif_new:
+    path:     /new
+    defaults: { _controller: "MultiServiceGsmFrontBundle:Tarif:new" }
+    methods:  [GET, POST]
+
+tarif_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MultiServiceGsmFrontBundle:Tarif:edit" }
+    methods:  [GET, POST]
+
+tarif_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MultiServiceGsmFrontBundle:Tarif:delete" }
+    methods:  DELETE

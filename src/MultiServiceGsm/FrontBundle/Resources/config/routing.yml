@@ -1,0 +1,24 @@
+
+multi_service_gsm_front_homepage:
+    path:     /front
+    defaults: { _controller: MultiServiceGsmFrontBundle:Default:index }
+
+multi_service_gsm_front_admin:
+   resource: "@MultiServiceGsmFrontBundle/Resources/config/routing/admin.yml"
+   prefix:   /admin
+
+multi_service_gsm_front_Reparation:
+    resource: "@MultiServiceGsmFrontBundle/Resources/config/routing/reparation.yml"
+    prefix:   /admin/reparation
+
+multi_service_gsm_front_tarif:
+   resource: "@MultiServiceGsmFrontBundle/Resources/config/routing/tarif.yml"
+   prefix:   /admin/tarif
+
+multi_service_gsm_front_modele:
+        resource: "@MultiServiceGsmFrontBundle/Resources/config/routing/modele.yml"
+        prefix:   /admin/modele
+
+multi_service_gsm_front_marque:
+        resource: "@MultiServiceGsmFrontBundle/Resources/config/routing/marque.yml"
+        prefix:   /admin/marque
