@@ -13,7 +13,7 @@ class ReparationType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nomReparation')->add('prixReparation');
+        $builder->add('nomReparation');
     }
     
     /**

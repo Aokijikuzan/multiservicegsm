@@ -67,11 +67,7 @@ class Tarif
      *@ORM\JoinColumn(nullable=false)
      */
      private $model;
-      /**
-     *@ORM\ManyToOne(targetEntity="MultiServiceGsm\FrontBundle\Entity\Marque")
-     *@ORM\JoinColumn(nullable=false)
-     */
-     private $marque;
+     
      /**
      *@ORM\ManyToOne(targetEntity="MultiServiceGsm\FrontBundle\Entity\Reparation")
      *@ORM\JoinColumn(nullable=false)
@@ -104,30 +100,6 @@ class Tarif
     }
 
     /**
-     * Set marque
-     *
-     * @param \MultiServiceGsm\FrontBundle\Entity\Marque $marque
-     *
-     * @return Tarif
-     */
-    public function setMarque(\MultiServiceGsm\FrontBundle\Entity\Marque $marque)
-    {
-        $this->marque = $marque;
-
-        return $this;
-    }
-
-    /**
-     * Get marque
-     *
-     * @return \MultiServiceGsm\FrontBundle\Entity\Marque
-     */
-    public function getMarque()
-    {
-        return $this->marque;
-    }
-
-    /**
      * Set reparation
      *
      * @param \MultiServiceGsm\FrontBundle\Entity\Reparation $reparation
@@ -150,4 +122,5 @@ class Tarif
     {
         return $this->reparation;
     }
+
 }

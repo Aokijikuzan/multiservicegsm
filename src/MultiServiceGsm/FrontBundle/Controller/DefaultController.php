@@ -10,4 +10,8 @@ class DefaultController extends Controller
     {
         return $this->render('MultiServiceGsmFrontBundle:Default:index.html.twig');
     }
+    public function infAction()
+    {
+		return $this->render('MultiServiceGsmFrontBundle:Default:pageInfo.html.twig');
+	}
 }

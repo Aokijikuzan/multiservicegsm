@@ -69,29 +69,8 @@ class Reparation
         return $this->nomR;
     }
 
-    /**
-     * Set prix
-     *
-     * @param float $prix
-     *
-     * @return Reparation
-     */
-    public function setPrix($prix)
-    {
-        $this->prix = $prix;
+    
 
-        return $this;
-    }
-
-    /**
-     * Get prix
-     *
-     * @return float
-     */
-    public function getPrix()
-    {
-        return $this->prix;
-    }
 
     /**
      * Set nomReparation
@@ -117,27 +96,8 @@ class Reparation
         return $this->nomReparation;
     }
 
-    /**
-     * Set prixReparation
-     *
-     * @param float $prixReparation
-     *
-     * @return Reparation
-     */
-    public function setPrixReparation($prixReparation)
+     public function __ToString()
     {
-        $this->prixReparation = $prixReparation;
-
-        return $this;
-    }
-
-    /**
-     * Get prixReparation
-     *
-     * @return float
-     */
-    public function getPrixReparation()
-    {
-        return $this->prixReparation;
+        return $this->nomReparation;
     }
 }

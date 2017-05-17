@@ -1,31 +1,45 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Tarif</h1>
-
-    <table>
+     {% include '::menuAction.html.twig' %} 
+    <h1 style="text-align:center;">Tarif</h1>
+    <div class="container">
+        <div class="row">
+    <table  class="table table-striped table-bordered" style="border: 15px solid grey; border-spacing:10px;">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ tarif.id }}</td>
+            <tr scope="row"  style=" border:1px solid grey; text-align:center;">
+                <th style="text-align:center;">Id</th>
+                <td style="text-align:center;">{{ tarif.id }}</td>
             </tr>
             <tr>
-                <th>Prix</th>
-                <td>{{ tarif.prix }}</td>
+                <th style="text-align:center;">Modèle</th>
+                <td style="text-align:center;">{{ tarif.model }}</td>
+            </tr>
+            <tr>
+                <th style="text-align:center;">Réparation</th>
+                <td style="text-align:center;">{{ tarif.reparation }}</td>
+            </tr>
+            <tr>
+                <th style="text-align:center;">Prix</th>
+                <td style="text-align:center;">{{ tarif.prix }} €</td>
             </tr>
         </tbody>
     </table>
 
-    <ul>
+    <ul scope="row"  style=" border:1px solid grey; text-align:center;">
         <li>
-            <a href="{{ path('tarif_index') }}">Back to the list</a>
+            <a href="{{ path('tarif_index') }}">revenir sur la liste des tarifs</a>
         </li>
         <li>
-            <a href="{{ path('tarif_edit', { 'id': tarif.id }) }}">Edit</a>
+            <a href="{{ path('tarif_edit', { 'id': tarif.id }) }}">Modifier ce prix</a>
+        </li>
+        <ul style="text-align:center;">
+        <li>
+            <a href="{{ path('tarif_new') }}">Ajouter un nouveau tarif</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
         </li>
     </ul>

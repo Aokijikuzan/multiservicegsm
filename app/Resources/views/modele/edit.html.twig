@@ -3,19 +3,22 @@
 
 {% block body %}
     {% include '::menuAction.html.twig' %} 
-    <div class="container" style="margin:auto;">
-        <div class="col-lg-12 col-lg-offset 4">
+    <div class="container">
+
+    <div class="row" style="margin-left:auto; margin-right:auto;">
+        <div class="col-lg-12 col-lg-offset 6">
             <div class="well well-lg col-lg-6">
                 <h1 style="text-align:center;">Modifier un modèle</h1 >
+                <div style="text-align:center;" >     
+                    {{ form_start(edit_form) }}
+                        {{ form_widget(edit_form) }}
+                        <input type="submit" value="Edit" />
+                    {{ form_end(edit_form) }}
+                </div>
 
-                {{ form_start(edit_form) }}
-                    {{ form_widget(edit_form) }}
-                    <input type="submit" value="Edit" />
-                {{ form_end(edit_form) }}
-
-                <ul>
+                <ul style="text-align:center;">
                     <li>
-                        <a href="{{ path('modele_index') }}">Back to the list</a>
+                        <a href="{{ path('modele_index') }}">Revenir en arrière</a>
                     </li>
                     <li>
                         {{ form_start(delete_form) }}
@@ -25,5 +28,6 @@
                 </ul>
             </div>
         </div>
+    </div>
     </div>
 {% endblock %}

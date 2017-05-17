@@ -1,28 +1,29 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Reparations list</h1>
+    {% include '::menuAction.html.twig' %} 
+    <h1 style="text-align:center;">Liste des réparations</h1>
 
-    <table>
+    <table class="table table-striped table-bordered" style="border: 15px solid grey; border-spacing:10px;">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nomreparation</th>
-                <th>Actions</th>
+            <tr style="text-align:center;">
+                <th style="text-align:center;">Id</th>
+                <th style="text-align:center;">Nom de la réparation</th>
+                <th style="text-align:center;">Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for reparation in reparations %}
-            <tr>
+            <tr style="text-align:center;">
                 <td><a href="{{ path('Reparation_show', { 'id': reparation.id }) }}">{{ reparation.id }}</a></td>
                 <td>{{ reparation.nomReparation }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('Reparation_show', { 'id': reparation.id }) }}">show</a>
+                            <a href="{{ path('Reparation_show', { 'id': reparation.id }) }}">Afficher cette réparation</a>
                         </li>
                         <li>
-                            <a href="{{ path('Reparation_edit', { 'id': reparation.id }) }}">edit</a>
+                            <a href="{{ path('Reparation_edit', { 'id': reparation.id }) }}">Modifier cette réparation</a>
                         </li>
                     </ul>
                 </td>
@@ -31,9 +32,9 @@
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('Reparation_new') }}">Create a new reparation</a>
+    <ul >
+        <li style="text-align:center;">
+            <a href="{{ path('Reparation_new') }}">Ajouter une nouvelle réparation</a>
         </li>
     </ul>
 {% endblock %}

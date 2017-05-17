@@ -78,7 +78,7 @@ class TarifController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('tarif_edit', array('id' => $tarif->getId()));
+            return $this->redirectToRoute('tarif_show', array('id' => $tarif->getId()));
         }
 
         return $this->render('tarif/edit.html.twig', array(

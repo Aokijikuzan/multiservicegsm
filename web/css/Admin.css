@@ -1,0 +1,36 @@
+ul
+{
+	list-style: none;
+}
+li
+{
+	text-align:center;
+}
+h1,h2,h3
+{
+	text-align: :center;
+}
+.spe
+{
+	min-height: 217px;
+/*	background:   url(  ' ../../../images/galaxyS7.jpg ' )  ;
+	background-size:cover; */
+	
+	
+   
+}
+p{
+	text-align: center;
+}
+div
+{
+	text-align: center;
+}
+
+
+.sp1
+{
+	padding-top: 100px;
+	border-top-width: 50px;
+
+}

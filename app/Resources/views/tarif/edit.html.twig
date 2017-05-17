@@ -1,21 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Tarif edit</h1>
+     {% include '::menuAction.html.twig' %} 
+    <div class="container">
+                <div class="row" style="margin-left:auto; margin-right:auto;">
+                <div class="col-lg-12 col-lg-offset 6">
+                    <div class="well well-lg col-lg-6">
+                    <h1>Modifer un tarif </h1>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
+                    {{ form_start(edit_form) }}
+                        {{ form_widget(edit_form) }}
+                        <input type="submit" value="Edit" style="text-align:center;" />
+                    {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('tarif_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                    <ul>
+                        <li>
+                            <a href="{{ path('tarif_index') }}">Revenir sur la liste des tarifs</a>
+                        </li>
+                        <li>
+                            {{ form_start(delete_form) }}
+                                <input type="submit" value="Supprimer">
+                            {{ form_end(delete_form) }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

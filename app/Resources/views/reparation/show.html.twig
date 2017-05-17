@@ -1,33 +1,40 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Reparation</h1>
+     {% include '::menuAction.html.twig' %} 
+    <h1 style="text-align:center;">Réparation</h1>
+    <div class="container">
+        <div class="row">
+            <table class="table table-striped table-bordered" style="border: 15px solid grey; border-spacing:10px;">
+    
+                                    <tbody>
+                                        <tr scope="row"  style=" border:1px solid grey; text-align:center;">
+                                            <th  style="text-align:center;">Id</th>
+                                            <td  style="text-align:center;">{{ reparation.id }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th  style="text-align:center;">Nom de la réparation</th>
+                                            <td  style="text-align:center;">{{ reparation.nomReparation }}</td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ reparation.id }}</td>
-            </tr>
-            <tr>
-                <th>Nomreparation</th>
-                <td>{{ reparation.nomReparation }}</td>
-            </tr>
-            
-        </tbody>
-    </table>
+                                <ul scope="row"  style=" border:1px solid grey; text-align:center;">
+                                    <li>
+                                        <a href="{{ path('Reparation_index') }}">Revenir en arrière</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('Reparation_edit', { 'id': reparation.id }) }}">Modifier</a>
+                                    </li>
+                                    <li style="text-align:center;">
+                                        <a href="{{ path('Reparation_new') }}" >ajouter une nouvelle réparation</a>
+                                    </li>
 
-    <ul>
-        <li>
-            <a href="{{ path('Reparation_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('Reparation_edit', { 'id': reparation.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+                                    <li>
+                                        {{ form_start(delete_form) }}
+                                            <input type="submit" value="Supprimer">
+                                        {{ form_end(delete_form) }}
+                                    </li>
+                                </ul>
 {% endblock %}

@@ -22,3 +22,7 @@ multi_service_gsm_front_modele:
 multi_service_gsm_front_marque:
         resource: "@MultiServiceGsmFrontBundle/Resources/config/routing/marque.yml"
         prefix:   /admin/marque
+
+multi_service_gsm_front_info:
+        path: /front/info
+        defaults: { _controller: MultiServiceGsmFrontBundle:Default:inf }

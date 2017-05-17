@@ -13,7 +13,7 @@ class TarifType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('prix')->add('model')->add('marque');
+        $builder->add('model')->add('reparation')->add('prix');
     }
     
     /**
