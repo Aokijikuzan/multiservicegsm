@@ -8,7 +8,10 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('MultiServiceGsmFrontBundle:Default:index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $marques = $em->getRepository('MultiServiceGsmFrontBundle:Marque')->findAll();
+        return $this->render('MultiServiceGsmFrontBundle:Default:index.html.twig',array( 'marques' =>$marques ));
     }
     public function infAction()
     {

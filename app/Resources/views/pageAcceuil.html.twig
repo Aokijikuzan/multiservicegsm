@@ -86,55 +86,17 @@
  </div>
 </div>
 <div class="container">
-    <div  id="content"class="row " style="border-radius:4px;">
-      <div class="col-xs-12 col-sm-4 col-md-2">
-      {% image '@MultiServiceGsmFrontBundle/Resources/public/images/logo-apple.jpg' %}
-        <img src="{{ asset_url }}" alt="Apple" class="img-thumbnail">
-      {% endimage %}
+ {% if marques is defined %}
+      <div ="row">
+        {% for marque in marques %}
+           <div class="col-xs-12 col-sm-4 col-md-2">
+                  <img src="{{ asset('images/'~marque.nomMarque~'.jpg') }}" />
+                  <p>{{marque.nomMarque}}</p>
+           </div>
+          {% endfor %}  
       </div>
-
-       <div class="col-xs-12 col-sm-4 col-md-2">
-      {% image '@MultiServiceGsmFrontBundle/Resources/public/images/Huawei-logo.jpg' %}
-        <img src="{{ asset_url }}" alt="Huawei" class="img-thumbnail">
-      {% endimage %}
-      </div>
-
-      <div class="col-xs-12 col-sm-4 col-md-2">
-      {% image '@MultiServiceGsmFrontBundle/Resources/public/images/logo-htc.jpeg' %}
-        <img src="{{ asset_url }}" alt="Htc" class="img-thumbnail">
-      {% endimage %}
-      </div>
-
-       <div class="col-xs-12 col-sm-4 col-md-2">
-      {% image '@MultiServiceGsmFrontBundle/Resources/public/images/logo-lg.jpg' %}
-        <img src="{{ asset_url }}" alt="Lg" class="img-thumbnail">
-      {% endimage %}
-      </div>
-
-      <div class="col-xs-12 col-sm-4 col-md-2">
-      {% image '@MultiServiceGsmFrontBundle/Resources/public/images/logo-motorola.jpg' %}
-        <img src="{{ asset_url }}" alt="Motorola" class="img-thumbnail">
-      {% endimage %}
-      </div> 
-      <div class="col-xs-12 col-sm-4 col-md-2">
-      {% image '@MultiServiceGsmFrontBundle/Resources/public/images/logo-samsung.jpg' %}
-        <img src="{{ asset_url }}" alt="Samsung" class="img-thumbnail">
-      {% endimage %}
-      </div>
-
-      <div class="col-xs-12 col-sm-4 col-md-2">
-      {% image '@MultiServiceGsmFrontBundle/Resources/public/images/nokia-logo.png' %}
-        <img src="{{ asset_url }}" alt="Nokia" class="img-thumbnail">
-      {% endimage %}
-      </div>
-
-      <div class="col-xs-12 col-sm-4 col-md-2">
-      {% image '@MultiServiceGsmFrontBundle/Resources/public/images/OnePlus-logo.jpg' %}
-        <img src="{{ asset_url }}" alt="OnePlus" class="img-thumbnail">
-      {% endimage %}
-      </div>
-      
-    </div>
+    {% endif %}
+  
 </div>
 
 

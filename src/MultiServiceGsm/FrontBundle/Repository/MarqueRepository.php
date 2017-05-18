@@ -10,4 +10,5 @@ namespace MultiServiceGsm\FrontBundle\Repository;
  */
 class MarqueRepository extends \Doctrine\ORM\EntityRepository
 {
+	
 }

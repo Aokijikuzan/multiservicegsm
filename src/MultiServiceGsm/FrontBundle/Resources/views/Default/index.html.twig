@@ -1,7 +1,13 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-{% include '::menu.html.twig' %}
-{% include '::pageAcceuil.html.twig' %}
-{% include '::footer.html.twig' %}
+	<div style="background-image: radial-gradient(circle at center, white, grey);
+}">
+		{% include '::menu.html.twig' %}
+		{% include '::pageAcceuil.html.twig' %}
+		
+		<div class="row">
+			{% include '::footer.html.twig' %}
+		</div>
+	</div>
 {% endblock %}
