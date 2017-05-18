@@ -1,0 +1,17 @@
+p
+{
+	text-align: center;
+}
+div
+{
+	text-align: center;
+}
+.rep1
+{
+	border: 4px dotted black;
+	border-radius:  10px;
+	margin: 20px;
+	display:inline-block;
+	border-top-left-radius: 15px 10px;
+	border-top-right-radius: 15px 10px;
+}

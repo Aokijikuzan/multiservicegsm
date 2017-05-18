@@ -89,9 +89,13 @@
  {% if marques is defined %}
       <div ="row">
         {% for marque in marques %}
-           <div class="col-xs-12 col-sm-4 col-md-2">
-                  <img src="{{ asset('images/'~marque.nomMarque~'.jpg') }}" />
-                  <p>{{marque.nomMarque}}</p>
+           <div class="col-xs-12 col-sm-4 col-md-2 rep">
+                  <section class="rep1">
+              <a href="{{ asset('Marque/'~marque.nomMarque~'.html.twig') }}">
+             
+                    <img src="{{ asset('images/'~marque.nomMarque~'.jpg') }}" /> </a>
+                    <p class"nam">{{marque.nomMarque}}</p>
+                  </section>
            </div>
           {% endfor %}  
       </div>

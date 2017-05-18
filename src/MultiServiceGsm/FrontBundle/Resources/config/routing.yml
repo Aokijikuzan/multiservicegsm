@@ -26,3 +26,7 @@ multi_service_gsm_front_marque:
 multi_service_gsm_front_info:
         path: /front/info
         defaults: { _controller: MultiServiceGsmFrontBundle:Default:inf }
+
+multi_service_gsm_front_appl:
+        path: /front/{id}/modelapp
+        defaults: { _controller: MultiServiceGsmFrontBundle:Appl:index }
