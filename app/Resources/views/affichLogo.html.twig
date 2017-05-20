@@ -1,0 +1,13 @@
+ {% if marques is defined %}
+        <h1>Liste des marques réparées</h1>
+        {% for marque in marques %}
+           <div class="col-xs-12 col-sm-4 col-md-2 rep">
+                  <section class="rep1">
+                   <a href="{{ path('multi_service_gsm_front_appl', {'id':marque.id } ) }}">
+             
+                    <img src="{{ asset('images/'~marque.slug~'.jpg') }}" /> </a>
+                    <p class"nam">{{marque.slug}}</p>
+                  </section>
+           </div>
+          {% endfor %}  
+    {% endif %}

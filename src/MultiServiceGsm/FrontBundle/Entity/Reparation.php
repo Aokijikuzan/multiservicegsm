@@ -3,6 +3,7 @@
 namespace MultiServiceGsm\FrontBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Reparation
@@ -26,12 +27,20 @@ class Reparation
      */
     private $id;
 
+
     /**
      * @var string
      *
      * @ORM\Column(name="nomReparation", type="string", length=255)
      */
     private $nomReparation;
+
+
+    /**
+    *@Gedmo\Slug(fields={"nomReparation"})
+    *@ORM\column(length=255, unique=true)
+    */
+    private $slug;
 
     
 
@@ -99,5 +108,29 @@ class Reparation
      public function __ToString()
     {
         return $this->nomReparation;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Reparation
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

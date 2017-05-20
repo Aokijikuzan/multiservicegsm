@@ -3,7 +3,7 @@
 namespace MultiServiceGsm\FrontBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * Modele
  *
@@ -32,6 +32,13 @@ class Modele
      * @ORM\Column(name="nomModele", type="string", length=255)
      */
     private $nomModele;
+
+    
+    /**
+    *@Gedmo\Slug(fields={"nomModele"})
+    *@ORM\column(length=255, unique=true)
+    */
+    private $slug;
 
 
     /**
@@ -124,5 +131,29 @@ class Modele
      public function __ToString()
     {
         return $this->nomModele;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Modele
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

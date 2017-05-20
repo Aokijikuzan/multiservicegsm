@@ -27,6 +27,9 @@
         <li>
             <a href="{{ path('marque_edit', { 'id': marque.id }) }}">Modifier une marque</a>
         </li>
+        <li style="text-align:center;">
+            <a href="{{ path('marque_new') }}" >ajouter une nouvelle marque</a>
+        </li>
         <li>
             {{ form_start(delete_form) }}
                 <input type="submit" value="Supprimer">

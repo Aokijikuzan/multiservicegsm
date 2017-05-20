@@ -21,6 +21,8 @@ class AppKernel extends Kernel
         /*ajout du 08/05/2017,01:44*/
           //  new FOS\UserBundle\FOSUserBundle(),
           //  new MultiServiceGsm\UserBundle\MultiServiceGsmUserBundle(),
+            //19/05/2017
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

@@ -1,13 +1,19 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-	<div style="background-image: radial-gradient(circle at center, white, grey);
-}">
-		{% include '::menu.html.twig' %}
-		{% include '::pageAcceuil.html.twig' %}
-		
+	<div style="background-image: radial-gradient(circle at center, white, grey);">
 		<div class="row">
-			{% include '::footer.html.twig' %}
+		{% include '::menu.html.twig' %}
+		</div>
+		<div class="row">
+		{% include '::pageAcceuil.html.twig' %}
+		</div>
+		<div class="row">
+		{% include '::affichLogo.html.twig' %}
+		</div>
+		<div class="row">
+		{% include '::footer.html.twig' %}
 		</div>
 	</div>
+		
 {% endblock %}

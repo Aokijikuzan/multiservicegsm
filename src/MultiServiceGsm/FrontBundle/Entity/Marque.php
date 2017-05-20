@@ -3,6 +3,7 @@
 namespace MultiServiceGsm\FrontBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Marque
@@ -26,6 +27,10 @@ class Marque
      */
     private $id;
 
+
+
+
+
     /**
      * @var string
      *
@@ -33,6 +38,11 @@ class Marque
      */
     private $nomMarque;
 
+    /**
+    *@Gedmo\Slug(fields={"nomMarque"})
+    *@ORM\column(length=255, unique=true)
+    */
+    private $slug;
 
     /**
      * Get id
@@ -97,4 +107,28 @@ class Marque
     }
 
 
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Marque
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
 }

@@ -1,36 +1,37 @@
 <div class="row text-center  linet ">
-  <div class="col-lg-12">
+          <div class="col-lg-12">
 
-    <article class="col-lg-3 prestasize title " >
-        <a class="padis" href="#"  ><font size="3"><span class="fa fa-list-alt" aria-hidden=true></span> Réalisation d'un devis et diagnostic</font>
-        <br>
-        </a>
-         <strong><span>Gratuit</span></strong>
-    </article>
-    <aricle class="col-lg-3 prestasize title">
-        <a class="padis" href="{{ path('multi_service_gsm_front_info') }}" ><font  size="3"> <span class=" fa fa-clock-o" aria-hidden="true"></span>Réparation de smartphone </font>
-        <br>
-        </a>
-        <strong><span><font color="red">En 30 minutes, sur place</font></span></strong>
-    </aricle>
+            <article class="col-lg-3 prestasize title " >
+                <a class="padis" href="#"  ><font size="3"><span class="fa fa-list-alt" aria-hidden=true></span> Réalisation d'un devis et diagnostic</font>
+                <br>
+                </a>
+                 <strong><span>Gratuit</span></strong>
+            </article>
+            <aricle class="col-lg-3 prestasize title">
+                <a class="padis" href="{{ path('multi_service_gsm_front_info') }}" ><font  size="3"> <span class=" fa fa-clock-o" aria-hidden="true"></span>Réparation de smartphone </font>
+                <br>
+                </a>
+                <strong><span><font color="red">En 30 minutes, sur place</font></span></strong>
+            </aricle>
 
-     <article class="col-lg-3 prestasize title">
-      <a class="padis" href=" #"  ><font size="3"><span class="fa fa-phone" aria-hidden="true"></span> livraison </font>
-        <br>
-       </a>
-       <strong><span>....</span></strong>
-    </article>
+             <article class="col-lg-3 prestasize title">
+              <a class="padis" href=" #"  ><font size="3"><span class="fa fa-phone" aria-hidden="true"></span> livraison </font>
+                <br>
+               </a>
+               <strong><span>....</span></strong>
+            </article>
 
-    <article class="col-lg-3 prestasize title">
-      <a class="padis" href="#"  ><font size="3"><span class="fa fa-phone" aria-hidden="true"></span> nous contacter </font>
-       <br>
-       </a>
-       <strong><span>au (+33) 02 38 52 49 50</span></strong>
-    </article>
+            <article class="col-lg-3 prestasize title">
+              <a class="padis" href="#"  ><font size="3"><span class="fa fa-phone" aria-hidden="true"></span> nous contacter </font>
+               <br>
+               </a>
+               <strong><span>au (+33) 02 38 52 49 50</span></strong>
+            </article>
 
-  </div>
+          </div>
 </div>
-<br>
+
+
 <div class="row">
   <div id="myCarousel" class="carousel slide" data-ride="carousel" style=""  >
     <!-- Indicators -->
@@ -83,25 +84,7 @@
                 <span class="glyphicon glyphicon-chevron-right"></span>
                 <span class="sr-only">Next</span>
               </a>
- </div>
+    </div>
 </div>
-<div class="container">
- {% if marques is defined %}
-      <div ="row">
-        {% for marque in marques %}
-           <div class="col-xs-12 col-sm-4 col-md-2 rep">
-                  <section class="rep1">
-              <a href="{{ asset('Marque/'~marque.nomMarque~'.html.twig') }}">
-             
-                    <img src="{{ asset('images/'~marque.nomMarque~'.jpg') }}" /> </a>
-                    <p class"nam">{{marque.nomMarque}}</p>
-                  </section>
-           </div>
-          {% endfor %}  
-      </div>
-    {% endif %}
-  
-</div>
-
 
 

@@ -138,3 +138,9 @@ assetic:
             inputs:
                 - "%kernel.root_dir%/../vendor/fortawesome/font-awesome/fonts/fontawesome-webfont.woff2"
             output: "fonts/fontawesome-webfont.woff2"
+
+#Stof\DoctrineExtensionsBundle configuration
+stof_doctrine_extensions:
+    orm:
+        default:
+            sluggable: true

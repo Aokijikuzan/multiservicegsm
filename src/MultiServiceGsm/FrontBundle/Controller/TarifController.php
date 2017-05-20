@@ -81,7 +81,7 @@ class TarifController extends Controller
             return $this->redirectToRoute('tarif_show', array('id' => $tarif->getId()));
         }
 
-        return $this->render('tarif/edit.html.twig', array(
+        return $this->render('tarif/show.html.twig', array(
             'tarif' => $tarif,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

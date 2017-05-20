@@ -21,6 +21,8 @@ class Tarif
      */
     private $id;
 
+
+    
     /**
      * @var float
      *
@@ -123,4 +125,6 @@ class Tarif
         return $this->reparation;
     }
 
+
+    
 }

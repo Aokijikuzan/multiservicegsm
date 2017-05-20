@@ -1,0 +1,15 @@
+<div class="row">
+	<div class="col-lg-12">
+		{% if modeles is defined %}
+			{% for modele in modeles %}
+				{{modele.slug}}
+				<div class="col-xs-12 col-sm-4 col-md-2 rep">
+                  	<section class="rep1">
+	                  	<img src="{{ asset('images/'~modele.slug~'.jpg') }}" /> </a>
+	                    <p class"nam">{{modele.slug}}</p>
+	                </section>
+              </div>
+			{% endfor %}
+		{% endif %}
+	</div>
+</div>
