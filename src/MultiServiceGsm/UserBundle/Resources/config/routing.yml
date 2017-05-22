@@ -1,3 +1,0 @@
-multi_service_gsm_user_homepage:
-    path:     /
-    defaults: { _controller: MultiServiceGSMUserBundle:Default:index }
