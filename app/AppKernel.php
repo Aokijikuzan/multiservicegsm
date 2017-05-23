@@ -24,8 +24,9 @@ class AppKernel extends Kernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             //23/05/2017
             new FOS\UserBundle\FOSUserBundle(),
+            new  MultiServiceGsm\UserBundle\MultiServiceGsmUserBundle(),
 
-             new MultiServiceGsm\UserBundle\MultiServiceGsmUserBundle(),
+            
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

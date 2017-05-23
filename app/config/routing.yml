@@ -12,3 +12,15 @@ app:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+multi_service_gsm_login:
+   path: /login
+   defaults:
+    _controller: MultiServiceGsmUserBundle:Security:login
+
+multi_service_gsm_login_check:
+  path: /login_check
+
+multi_service_gsm_logout:
+  path: /logout
+
