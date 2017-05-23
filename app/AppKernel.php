@@ -19,10 +19,13 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new MultiServiceGsm\FrontBundle\MultiServiceGsmFrontBundle(),
         /*ajout du 08/05/2017,01:44*/
-          //  new FOS\UserBundle\FOSUserBundle(),
           //  new MultiServiceGsm\UserBundle\MultiServiceGsmUserBundle(),
             //19/05/2017
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            //23/05/2017
+            new FOS\UserBundle\FOSUserBundle(),
+
+             new MultiServiceGsm\UserBundle\MultiServiceGsmUserBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

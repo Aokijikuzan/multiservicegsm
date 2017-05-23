@@ -1,0 +1,4 @@
+services:
+#    multi_service_gsm_user.example:
+#        class: MultiServiceGsm\UserBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
