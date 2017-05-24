@@ -18,8 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
             new MultiServiceGsm\FrontBundle\MultiServiceGsmFrontBundle(),
-        /*ajout du 08/05/2017,01:44*/
-          //  new MultiServiceGsm\UserBundle\MultiServiceGsmUserBundle(),
+        
             //19/05/2017
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             //23/05/2017

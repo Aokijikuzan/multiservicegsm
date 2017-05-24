@@ -8,6 +8,6 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('MultiServiceGsmUserBundle:Default:index.html.twig');
+        return $this->render('MultiServiceGsmFrontBundle:Default:index.html.twig');
     }
 }

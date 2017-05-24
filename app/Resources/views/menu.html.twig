@@ -13,14 +13,23 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="{{path('multi_service_gsm_front_homepage')}}">Acceuil</a></li>
 				<li><a href="#service">Services</a></li>
-				<li><a href="#compte">Connexion</a></li>
+					{%if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+							<li class="dropdown ">
+								<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								Connecté
+								</button>
+								<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+								<li><a href="#" title="Lien 1">Profil</a></li>
+								<li><a href="#" title="Lien 2">Commande</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="{{path('fos_user_security_logout')}}" title="Lien 4">Deconnexion</a></li>
+								</ul>
+							</li>
+					{%else%} <li><a href="{{path('fos_user_security_login')}}">Connexion</a></li>
+					{% endif %}
+				
 			</ul>
-		  <form class="navbar-form navbar-right inline-form">
-			<div class="form-group">
-			  <input type="search" class="input-sm form-control" placeholder="Recherche">
-			  <button type="submit" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-eye-open"></span>Recherche</button>
-			</div>
-		  </form>
+		 
 		</div>
 	</div>
 </nav>
