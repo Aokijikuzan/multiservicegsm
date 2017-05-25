@@ -2,9 +2,4 @@ services:
 #    multi_service_gsm_user.example:
 #        class: MultiServiceGsm\UserBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
-     multi_service_gsm_user.registration:
-          class: MultiServiceGsm\UserBundle\Form\Type\RegistrationFormType
-          arguments: [%fos_user.model.user.class%]
-          tags:
-              - { name: form.type, alias: multi_service_gsm_user_registration }
-               
+      

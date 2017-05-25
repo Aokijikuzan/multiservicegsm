@@ -155,4 +155,5 @@ fos_user:
         sender_name: "%mailer_user%"
     registration:
         form:
-            type: UserBundle\Form\registrationFormType
+            type: USerBundle\Form\RegistrationType
+    
