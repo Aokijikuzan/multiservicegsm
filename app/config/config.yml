@@ -151,10 +151,29 @@ fos_user:
     firewall_name: main
     user_class: MultiServiceGsm\UserBundle\Entity\User
     from_email:
-        address: registration@example.com
-        sender_name: Demo Registration
+        address:    '%mailer_user%'
+        sender_name: Demo App
+    
     registration:
         form:
             type: MultiServiceGsm\UserBundle\Form\RegistrationType
         confirmation:
-            enable: true
+            enabled: true
+            template: '@FOSUser/Registration/email.txt.twig'        
+            from_email:
+                address:        '%mailer_user%'
+                sender_name:    Demo Registration
+
+    from_email:
+        address:       '%mailer_user%'
+        sender_name:    Demo App
+    
+    resetting:
+        email:
+            from_email:
+                address:        '%mailer_user%'
+                sender_name:    Demo Resetting
+            template:   email/password_resetting.email.twig
+    service:
+        mailer: fos_user.mailer.twig_swift
+

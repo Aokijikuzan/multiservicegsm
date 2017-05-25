@@ -16,13 +16,14 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
             new AppBundle\AppBundle(),
             new MultiServiceGsm\FrontBundle\MultiServiceGsmFrontBundle(),
         
             //19/05/2017
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             //23/05/2017
-            new FOS\UserBundle\FOSUserBundle(),
+          
             new  MultiServiceGsm\UserBundle\MultiServiceGsmUserBundle(),
 
             
