@@ -155,5 +155,5 @@ fos_user:
         sender_name: "%mailer_user%"
     registration:
         form:
-            type: USerBundle\Form\RegistrationType
+            type: MultiServiceGsm\UserBundle\Form\RegistrationType
     
