@@ -19,7 +19,7 @@ class ApplController extends Controller
         $modeles = $em->getRepository('MultiServiceGsmFrontBundle:Modele')->findByMarque($marque);
         //return $this->render('MultiServiceGsmFrontBundle:Marque:Apple.html.twig', array(
        //     'modeles' => $modeles
-        return $this-> render('MultiServiceGsmFrontBundle:Marque:affichModele.html.twig',array('modeles' => $modeles));
+        return $this-> render('MultiServiceGsmFrontBundle:Marque:affichModele.html.twig',array('modeles' => $modeles,$marque));
     }
    
 }
