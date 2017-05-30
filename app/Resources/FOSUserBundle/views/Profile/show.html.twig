@@ -1,5 +1,19 @@
-{% extends "@FOSUser/layout.html.twig" %}
+{% extends "@FOSUser/layout1.html.twig" %}
+{% block ads%}
+	
 
-{% block fos_user_content %}
-{% include "@FOSUser/Profile/show_content.html.twig" %}
-{% endblock fos_user_content %}
+		<div class=" col-sm-6">
+			{% block fos_user_content %}
+				{% include "@FOSUser/Profile/show_content.html.twig" %}
+			{% endblock fos_user_content %}
+		</div>
+
+		<div class="col-sm-6">
+			{% block fos_user_content1 %}		
+					<button type="buttton" class="btn btn-secondary">
+						<a href=" {{path('fos_user_profile_edit')}}">Modifier le profil</a>
+					</button>
+			{% endblock fos_user_content1 %}
+		</div>
+
+{% endblock ads%}

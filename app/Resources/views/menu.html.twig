@@ -12,15 +12,15 @@
 		<div class="navbar-collapse collapse"> 
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="{{path('multi_service_gsm_front_homepage')}}">Acceuil</a></li>
-				<li><a href="{{path('fos_user_registration_register')}}">Créer un compte</a></li>
+			
 				<li><a href="#service">Services</a></li>
 					{%if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-							<li class="dropdown ">
+							<li class="dropdown" style="padding-top:7px;">
 								<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
 								Connecté
 								</button>
 								<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-								<li><a href="#" title="Lien 1">Profil</a></li>
+								<li><a href="{{path('fos_user_profile_show')}}" title="Lien 1">Profil</a></li>
 								<li><a href="#" title="Lien 2">Commande</a></li>
 								<li role="separator" class="divider"></li>
 								<li><a href="{{path('fos_user_security_logout')}}" title="Lien 4">Deconnexion</a></li>

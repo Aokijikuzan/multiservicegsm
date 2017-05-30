@@ -150,4 +150,10 @@ class User extends BaseUser
     {
         return $this->adressepostal;
     }
+
+    public function __construct()
+    {
+        $this->role=array('ROLE_USER');
+    }
 }
+

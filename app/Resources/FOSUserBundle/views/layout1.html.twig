@@ -36,27 +36,29 @@
 
         {% if app.request.hasPreviousSession %}
             {% for type, messages in app.session.flashbag.all() %}
-                    <div class="alert  alert-danger alert-{{type}} flash-{{type}}">
-                      <!--  <div class="alert alert-danger alert-{{ type }}">-->
-                            <ul>
-                                {% for message in messages %}
-                                       <li>
-                                            {{ message }}
-                                        </li>
-                                {% endfor %}
-                            </ul>
-                    <!--    </div> -->
+                    <div class="alert alert-{{ type }}">
+                        <ul>
+                            {% for message in messages %}
+                                   <li>
+                                        {{ message }}
+                                    </li>
+                            {% endfor %}
+                        </ul>
                     </div>
             {% endfor %}
         {% endif %}
 
-        <div class="row">
             <h1>Multi Service Gsm </h1>
-            <div class="col-sm-offset-4 col-sm-4 well" style=" border-radius: 6px;" >
+        <div class="row rcorners2">
+            <div class=" col-sm-7 " >
                 {% block fos_user_content %}                    
                 {% endblock fos_user_content %}
             </div>
+            <div class="col-sm-4 "  >
 
+                {% block fos_user_content1 %}                    
+                {% endblock fos_user_content1 %}
+            </div>
         </div>
 
          {% javascripts '@jquery' '@bootstrap_js' %}

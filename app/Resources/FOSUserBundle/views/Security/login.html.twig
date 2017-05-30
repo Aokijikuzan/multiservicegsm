@@ -8,10 +8,14 @@
 			<h1>Identifiez-vous</h1>
 		    {{ include('@FOSUser/Security/login_content.html.twig') }}
 		</div>
+
 		    <hr width="30%" style="color:black;"/>
+
 		<div style="padding-top:30px;padding-bottom:30px">
+			
 			<a href="{{path('fos_user_resetting_request')}}">mot de passe oublié?</a>
 		</div>
+
 				<hr width="30%" style="display: block"/>
 
 		<div style="padding-top:30px;">
@@ -19,5 +23,6 @@
 				<a href="{{path('fos_user_registration_register')}}" style="color:white;">Créer un compte</a>
 			</button>
 		</div>
+
 	</div>
 {% endblock fos_user_content %}
