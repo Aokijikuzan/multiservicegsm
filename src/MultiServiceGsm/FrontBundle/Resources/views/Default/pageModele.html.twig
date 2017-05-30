@@ -9,6 +9,7 @@
 				{% endif %}
 				<div class="col-xs-12 col-sm-4 col-md-2 rep">
                   	<section class="rep1">
+                  		<a href="{{ path('multi_service_gsm_front_model_reparation', {'id':modele.id } ) }}">
 	                  	<img src="{{ asset('images/'~modele.slug~'.jpg') }}" /> </a>
 	                    <p class"nam">{{modele.slug}}</p>
 	                </section>

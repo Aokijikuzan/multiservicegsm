@@ -1,0 +1,23 @@
+<div class="row">
+	<div class="col-lg-9">
+
+		{% if tarif is defined %}
+			<table class="table table-bordered">
+			  <thead class="thead-inverse">
+			    <tr>
+			      <th>Réparations</th>
+			      <th>tarifs</th>
+			    </tr>
+			    <tbody>
+			    {% for tarifs in tarif %}
+			    	<tr>	
+			    		<td>{{tarifs.reparation}}</td>
+			    		<td>{{tarifs.prix}}</td>
+			    	</tr>
+			    {% endfor %}
+			    </tbody>
+			  </thead>
+			</table>
+		{% endif %}
+	</div>
+</div>

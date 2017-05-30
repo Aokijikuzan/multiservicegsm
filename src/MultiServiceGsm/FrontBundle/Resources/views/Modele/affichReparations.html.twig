@@ -1,0 +1,15 @@
+
+{% extends '::base.html.twig' %}
+{% block body %}
+
+<div class="row">	
+	{% include ( '::menu.html.twig')  %}
+</div>
+<div class="row">
+	{% include ( 'MultiServiceGsmFrontBundle:Default:pageReparationModele.html.twig' ) %}
+</div>
+<div class="row">
+	{% include ( '::footer.html.twig' ) %}
+</div>
+
+{% endblock %}

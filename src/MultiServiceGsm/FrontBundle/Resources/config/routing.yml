@@ -30,3 +30,7 @@ multi_service_gsm_front_info:
 multi_service_gsm_front_appl:
         path: /front/{id}/modelapp
         defaults: { _controller: MultiServiceGsmFrontBundle:Appl:app }
+
+multi_service_gsm_front_model_reparation:
+        path: /front/{id}/modelrep
+        defaults: { _controller: MultiServiceGsmFrontBundle:RepaModel:rep }

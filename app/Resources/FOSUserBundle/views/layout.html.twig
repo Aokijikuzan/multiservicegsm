@@ -14,6 +14,7 @@
             <link rel="stylesheet" href="{{ asset('css/publi.css') }}"/>
             <link href="{{ asset ('http://fonts.googleapis.com/css?family=Cookie') }}" rel="stylesheet" type="text/css"/>
             <link rel="stylesheet" href="css/page-acceuil.css"/>    
+            <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
         {% endstylesheets %}
         {% stylesheets '@font_awesome_css' %}
             <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>          
@@ -29,8 +30,7 @@
                 <a href="{{ path('fos_user_security_logout') }}">
                     {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
                 </a>
-            {% else %}
-                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+            
             {% endif %}
         </div>
 
@@ -48,9 +48,14 @@
             {% endfor %}
         {% endif %}
 
-        <div>
-            {% block fos_user_content %}
-            {% endblock fos_user_content %}
+        <div class="row">
+            <h1>Multi Service Gsm </h1>
+            <div class="col-sm-offset-4 col-sm-4 well" >
+                {% block fos_user_content %}
+                    
+                 
+                {% endblock fos_user_content %}
+            </div>
         </div>
 
          {% javascripts '@jquery' '@bootstrap_js' %}

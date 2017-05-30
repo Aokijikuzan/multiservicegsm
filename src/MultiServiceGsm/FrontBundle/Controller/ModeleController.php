@@ -78,7 +78,7 @@ class ModeleController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('modele_edit', array('id' => $modele->getId()));
+            return $this->redirectToRoute('modele_show', array('id' => $modele->getId()));
         }
 
         return $this->render('modele/edit.html.twig', array(

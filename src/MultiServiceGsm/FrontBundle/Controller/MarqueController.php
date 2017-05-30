@@ -81,7 +81,7 @@ class MarqueController extends Controller
             return $this->redirectToRoute('marque_show', array('id' => $marque->getId()));
         }
 
-        return $this->render('marque/show.html.twig', array(
+        return $this->render('marque/edit.html.twig', array(
             'marque' => $marque,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
