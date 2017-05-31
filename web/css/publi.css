@@ -31,3 +31,9 @@ font-family: 'Pacifico', cursive;
     margin-right: 40px;
     margin-left: 40px;
 }
+body
+{
+	font-family: 'Pacifico', cursive;
+	background: radial-gradient( circle at center top, white, grey);
+	height: 100%;
+}
