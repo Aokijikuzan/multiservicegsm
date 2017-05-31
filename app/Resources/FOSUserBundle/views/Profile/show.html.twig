@@ -10,9 +10,29 @@
 
 		<div class="col-sm-6">
 			{% block fos_user_content1 %}		
-					<button type="buttton" class="btn btn-secondary">
-						<a href=" {{path('fos_user_profile_edit')}}">Modifier le profil</a>
-					</button>
+					<div style="padding-bottom:20px;">
+						<button type="buttton" class="btn btn-secondary">
+							<a href=" {{path('fos_user_profile_edit')}}">Modifier votre profil</a>
+						</button>
+					</div>
+					<br>
+					<div style="padding-bottom:20px;">
+						<button type="buttton" class="btn btn-secondary">
+							<a href=" {{path('fos_user_change_password')}}">changer votre mot de passe</a>
+						</button>
+					</div>
+					<br>
+					<div style="padding-bottom:20px;">
+						<button type="buttton" class="btn btn-secondary">
+							<a href=" ">afficher votre historique de commande</a>
+						</button>
+					</div>
+					<br>
+					<div style="padding-bottom:20px;">
+						<button type="buttton" class="btn btn-secondary">
+							<a href="{{path('fos_user_change_password')}}">supprimer votre compte</a>
+						</button>
+					</div>
 			{% endblock fos_user_content1 %}
 		</div>
 

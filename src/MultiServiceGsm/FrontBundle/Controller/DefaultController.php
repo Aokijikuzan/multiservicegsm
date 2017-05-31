@@ -18,4 +18,9 @@ class DefaultController extends Controller
     {
 		return $this->render('MultiServiceGsmFrontBundle:Default:pageInfo.html.twig');
 	}
+
+    public function devAction()
+    {
+        return $this->render('MultiServiceGsmFrontBundle:Default:affichDevis.html.twig');
+    }
 }

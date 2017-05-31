@@ -2,17 +2,23 @@
 
 {% block body %}
 	<div class="total">
-		<div class="col-sm-12">
+		<div class="col-md-12">
 			{% include '::menu.html.twig' %}
 		</div>
-		<div class="col-sm-12">
+		<div class="col-md-12">
 			{% include '::pageAcceuil.html.twig'%}
 		</div>
-		<div class="col-sm-12">
+		<div class="col-md-12">
+			<div class="col-md-3">
+				{% include 'MultiServiceGsmFrontBundle:Default:affichDevis.html.twig'%}
+			</div>
+			 <div class="col-md-9">
 			{% include '::affichLogo.html.twig'%}
+			</div>
 		</div>
-		<div class="col-sm-12" >
-			{% include '::footer.html.twig' %}
+		
+		<div class="col-md-12" >
+				{% include '::footer.html.twig' %}
 		</div>
 	</div>
 {% endblock %}

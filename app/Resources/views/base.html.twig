@@ -17,6 +17,7 @@
             <link rel="stylesheet" href="{{ asset('css/Admin.css') }}"/>
             <link rel="stylesheet" href="{{ asset('css/publi.css') }}"/>
             <link href="{{ asset ('http://fonts.googleapis.com/css?family=Cookie') }}" rel="stylesheet" type="text/css"/>
+            <link href="https://fonts.googleapis.com/css?family=Pacifico&amp;subset=latin-ext" rel="stylesheet">
             <link rel="stylesheet" href="css/page-acceuil.css"/>    
         {% endstylesheets %}
         {% stylesheets '@font_awesome_css' %}
@@ -28,9 +29,14 @@
     <body>
         
         {% block body %}{% endblock body%}
+
+
         {% javascripts '@jquery' '@bootstrap_js' %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
+        {% block javascripts %}
+             <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+        {% endblock javascripts%}
     </body>
 
 </html>

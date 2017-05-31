@@ -178,3 +178,8 @@ fos_user:
     service:
         mailer: fos_user.mailer.twig_swift
 
+    profile:
+        form:
+            type: MultiServiceGsm\UserBundle\Form\profileFormType
+            name: fos_user_profile_form
+            validation_groups: [Profile, Default]

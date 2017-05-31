@@ -24,13 +24,31 @@ multi_service_gsm_front_marque:
         prefix:   /admin/marque
 
 multi_service_gsm_front_info:
-        path: /front/info
+        path: /info
         defaults: { _controller: MultiServiceGsmFrontBundle:Default:inf }
 
 multi_service_gsm_front_appl:
-        path: /front/{id}/modelapp
+        path: /{id}/modelapp
         defaults: { _controller: MultiServiceGsmFrontBundle:Appl:app }
 
 multi_service_gsm_front_model_reparation:
-        path: /front/{id}/modelrep
+        path: /{id}/modelrep
         defaults: { _controller: MultiServiceGsmFrontBundle:RepaModel:rep }
+
+
+multi_service_gsm_front_devis:
+        path: /{id}/devis
+        defaults: { _controller: MultiServiceGsmFrontBundle:Devis:dev }
+multi_service_gsm_front_devis_marque:
+        path: /allMarque
+        defaults: { _controller: MultiServiceGsmFrontBundle:Devis:marqueAjax}
+multi_service_gsm_front_devis_modele:
+        path: /modele/{slug}
+        defaults: { _controller: MultiServiceGsmFrontBundle:Devis:modeleAjax}
+multi_service_gsm_front_devis_reparation:
+        path: /{slug}/reparation
+        defaults: { _controller: MultiServiceGsmFrontBundle:Devis:reparationAjax}
+
+multi_service_gsm_front_formDevis:
+        path: /formulaire_devis
+        defaults: {_controller: MultiServiceGsmFrontBundle:Default:dev}
