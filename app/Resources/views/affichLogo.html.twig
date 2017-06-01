@@ -1,9 +1,9 @@
 
  {% if marques is defined %}
-  <div class="col-md-12">
+  <div >
         <h1 style="background:white;padding-bottom:20px;">Liste des marques réparées</h1>
         {% for marque in marques %}
-           <div class="col-sm-4 col-sm-4 col-sm-2 rep">
+           <div class=" col-xs-12 col-sm-3 col-md-3 rep">
                   <section class="rep1">
                    <a href="{{ path('multi_service_gsm_front_appl', {'id':marque.id } ) }}">
              

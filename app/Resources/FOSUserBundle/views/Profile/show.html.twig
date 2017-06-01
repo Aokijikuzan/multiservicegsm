@@ -32,11 +32,11 @@
 						<div class="alert alert-warning">
 							<strong>Attention!!! l'action de supprimer votre compte  est irréversible.</strong>
 						</div>
-						<button type="buttton" class="btn btn-warning"
-							data-toggle="confirmation">
-							<a href="{{path('multi_service_gsm_user_delete',{'id': user.id }) }}">supprimer votre compte</a>
+						<form type="buttton" class="btn btn-warning"
+							onClick="confirm('etes vous sur(e)?')">
+							<a href="">supprimer votre compte</a>
 
-						</button>
+						</form>
 					</div>
 			{% endblock fos_user_content1 %}
 		</div>

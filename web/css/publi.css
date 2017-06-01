@@ -7,20 +7,23 @@ div
 	text-align: center;
 font-family: 'Pacifico', cursive;
 }
+.rep
+{
+	text-align: center;
+}
 .rep1
 {
+	
+	position: relative;
 	border: 1px dotted black;
 	border-radius:  10px;
 	margin: 20px;
-	display:inline-block;
+	display: inline-block;
 	border-top-left-radius: 15px 10px;
 	border-top-right-radius: 15px 10px;
+	max-width: 190px;
 }
-h1
-{
-text-align: center;
-font-family: 'Pacifico', cursive;
-}
+
 .rcorners2
  {
     border-radius: 25px;
@@ -36,4 +39,72 @@ body
 	font-family: 'Pacifico', cursive;
 	background: radial-gradient( circle at center top, white, grey);
 	height: 100%;
+}
+.padis
+{
+	font-family: 'Pacifico', cursive;
+}
+.myCarousel
+{
+	width:100%;     
+	overflow:hidden ;
+	position:relative ;
+	height : 300px;
+
+.linet
+{
+ padding: 55px 50px;
+}
+.title
+{
+	color:black;
+	text-decoration:underline;
+}
+.selectpicker
+{
+	margin-left: auto;
+	margin-top: auto;
+}
+.categ
+{
+	margin-left: auto;
+	margin-top: auto;
+	border-radius:4px;
+	border-width: 2px;
+}
+.titr
+{
+	
+	display: block;
+}
+ul
+{
+	list-style: none;
+}
+li
+{
+	text-align:center;
+}
+h1,h2,h3
+{
+	text-align:center;
+	font-family:'Pacifico',cursive;
+}
+.h11
+{
+	text-align: center;
+}
+.spe
+{
+	min-height: 217px;
+/*	background:   url(  ' ../../../images/galaxyS7.jpg ' )  ;
+	background-size:cover; */	
+}
+
+
+.sp1
+{
+	padding-top: 100px;
+	border-top-width: 50px;
+
 }

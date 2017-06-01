@@ -1,24 +1,27 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-	<div class="total">
-		<div class="col-md-12">
-			{% include '::menu.html.twig' %}
-		</div>
-		<div class="col-md-12">
-			{% include '::pageAcceuil.html.twig'%}
-		</div>
-		<div class="col-md-12">
+	{% include '::menu.html.twig' %}
+	
+	<div class="container">
+
+		{% include '::pageAcceuil.html.twig'%}
+
+		<div class=" row col-md-12" style="padding-left:0px;padding-right:0px;">
+
 			<div class="col-md-3">
 				{% include 'MultiServiceGsmFrontBundle:Default:affichDevis.html.twig'%}
 			</div>
-			 <div class="col-md-9">
-			{% include '::affichLogo.html.twig'%}
+
+			 <div class="col-md-9" style="padding-left:0px;padding-right:0px;">
+				{% include '::affichLogo.html.twig'%}
 			</div>
+
 		</div>
-		
-		<div class="col-md-12" >
-				{% include '::footer.html.twig' %}
-		</div>
+
 	</div>
+
+		
+			{% include '::footer.html.twig' %}
+	
 {% endblock %}
