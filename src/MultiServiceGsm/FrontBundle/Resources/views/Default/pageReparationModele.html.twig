@@ -1,23 +1,10 @@
-<div class="row">
-	<div class="col-lg-9">
 
-		{% if tarif is defined %}
-			<table class="table table-bordered">
-			  <thead class="thead-inverse">
-			    <tr>
-			      <th>Réparations</th>
-			      <th>tarifs</th>
-			    </tr>
-			    <tbody>
-			    {% for tarifs in tarif %}
-			    	<tr>	
-			    		<td>{{tarifs.reparation}}</td>
-			    		<td>{{tarifs.prix}}</td>
-			    	</tr>
+		{% if reparations is defined %}
+			
+			    {% for repartion in reparations %}
+			    	{% if var==1 %}
+			    			<h1>{{modele.marque}}</h1>
+						{% set var=2%}
 			    {% endfor %}
-			    </tbody>
-			  </thead>
-			</table>
+			   
 		{% endif %}
-	</div>
-</div>
