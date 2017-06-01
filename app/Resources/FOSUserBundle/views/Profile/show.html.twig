@@ -29,8 +29,13 @@
 					</div>
 					<br>
 					<div style="padding-bottom:20px;">
-						<button type="buttton" class="btn btn-secondary">
-							<a href="{{path('fos_user_change_password')}}">supprimer votre compte</a>
+						<div class="alert alert-warning">
+							<strong>Attention!!! l'action de supprimer votre compte  est irréversible.</strong>
+						</div>
+						<button type="buttton" class="btn btn-warning"
+							data-toggle="confirmation">
+							<a href="{{path('multi_service_gsm_user_delete',{'id': user.id }) }}">supprimer votre compte</a>
+
 						</button>
 					</div>
 			{% endblock fos_user_content1 %}

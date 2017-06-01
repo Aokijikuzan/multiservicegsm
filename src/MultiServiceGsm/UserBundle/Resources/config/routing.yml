@@ -1,3 +1,9 @@
 multi_service_gsm_user_homepage:
     path:     /
     defaults: { _controller: MultiServiceGsmUserBundle:Default:index }
+
+multi_service_gsm_user_delete:
+    path: /deleteUser/{id}
+    defaults: { _controller: MultiServiceGsmUserBundle:Default:deleteUser }
+    requirements:
+      id: \d+
