@@ -1,10 +1,33 @@
 {% if tarifs is defined %}
-<div class="row">
-
-	<div class="col-md-3">
-
-	</div>
-	<div class="col-md-3">
-
-	</div>
-</div>
+	{% for tarif in tarifs %}
+		<div class="row">
+				<div class="col-md-12">
+					<div class="col-md-3">
+						<a>
+					      <img src="{{ asset('images/reparations/'~tarif.reparation~'.png') }}" /> 
+					    </a> 
+					</div>
+					<div class="col-md-9">
+						commentaire
+						commentaire
+						commentaire
+						commentaire
+						commentaire
+						commentairecommentaire
+						commentaire
+						commentaire
+						commentairecommentaire
+						commentaire
+						commentairecommentaire
+						
+					</div>
+				</div>	
+			</div>
+		<div class="row">
+			Réparation directement sur place
+		</div>
+		<div class="row">
+			Réparation en l'envoyant par la poste 
+		</div>
+		{% endfor %}
+{% endif %}

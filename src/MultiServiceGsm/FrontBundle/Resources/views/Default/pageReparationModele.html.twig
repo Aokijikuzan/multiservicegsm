@@ -9,9 +9,9 @@
 					{% endif %}
 						<div class="col-xs-12 col-sm-4 col-md-2 rep">
 	                  	<section class="rep1">
-	                  		<a>
-		                  	<img src="{{ asset('images/reparations/'~tarif.reparation~'.png') }}" /> 
-		                  </a>
+	                  		<a href="{{ path('multi_service_gsm_front_fiche_reparation', {'id':tarif.id} ) }}">
+		                  		<img src="{{ asset('images/reparations/'~tarif.reparation~'.png') }}" /> 
+		                  	</a>
 		                    <p class"nam">{{tarif.reparation}}</p>
 		                </section>
 	              </div>

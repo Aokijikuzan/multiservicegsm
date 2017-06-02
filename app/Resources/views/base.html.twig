@@ -34,9 +34,14 @@
         {% javascripts '@jquery' '@bootstrap_js' %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
+        
         {% block javascripts %}
              <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
         {% endblock javascripts%}
+       
+        {% javascripts '@MultiServiceGsmFrontBundle/Resources/public/js/*' %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
     </body>
 
 </html>

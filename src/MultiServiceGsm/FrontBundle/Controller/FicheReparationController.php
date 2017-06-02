@@ -23,7 +23,7 @@ class FicheReparationController extends Controller
         $tarifs = $em->getRepository('MultiServiceGsmFrontBundle:Tarif')->findByModel($modele);
         //return $this->render('MultiServiceGsmFrontBundle:Marque:Apple.html.twig', array(
        //     'modeles' => $modeles
-       return $this-> render('MultiServiceGsmFrontBundle:Modele:affichReparations.html.twig',array('tarifs'=>$tarifs));
+       return $this-> render('MultiServiceGsmFrontBundle:Default:pageFicheReparation.html.twig',array('tarifs'=>$tarifs));
 
     }
 }
