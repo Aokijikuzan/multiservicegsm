@@ -14,11 +14,17 @@
         {% stylesheets '@bootstrap_css' %}
             <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('css/bootstrap.css') }}"/>
             <link rel="stylesheet" href="{{ asset('css/footer-distributed-address-and-phones.css') }}"/>
-            <link rel="stylesheet" href="{{ asset('css/Admin.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('css/Admin.c ss') }}"/>
             <link rel="stylesheet" href="{{ asset('css/publi.css') }}"/>
             <link href="{{ asset ('http://fonts.googleapis.com/css?family=Cookie') }}" rel="stylesheet" type="text/css"/>
             <link href="https://fonts.googleapis.com/css?family=Pacifico&amp;subset=latin-ext" rel="stylesheet">
             <link rel="stylesheet" href="css/page-acceuil.css"/>    
+            <link rel="stylesheet" href="{{ asset('css/smart_wizard.min.css' ) }}"  type="text/css" /> 
+            <link rel="stylesheet" href="{{ asset('css/smart_wizard.css' ) }}"  type="text/css" /> 
+            <link rel="stylesheet" href="{{ asset('css/smart_wizard_theme_arrows.css' ) }}" type="text/css" />
+            <link href="{{ asset('css/smart_wizard_theme_circles.css' ) }}" rel="stylesheet" type="text/css" />
+            <link href="{{ asset('css/smart_wizard_theme_arrows.css' ) }}" rel="stylesheet" type="text/css" />
+            <link href="{{ asset('css/smart_wizard_theme_dots.css' ) }}" rel="stylesheet" type="text/css" />
         {% endstylesheets %}
         {% stylesheets '@font_awesome_css' %}
             <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}"/>          
@@ -30,18 +36,19 @@
         
         {% block body %}{% endblock body%}
 
-
+            
+       
+        
+        {% javascripts '@MultiServiceGsmFrontBundle/Resources/public/js/*' %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
         {% javascripts '@jquery' '@bootstrap_js' %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
         
-        {% block javascripts %}
-             <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
-        {% endblock javascripts%}
+        
+        
        
-        {% javascripts '@MultiServiceGsmFrontBundle/Resources/public/js/*' %}
-            <script src="{{ asset_url }}"></script>
-        {% endjavascripts %}
     </body>
 
 </html>
