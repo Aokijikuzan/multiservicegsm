@@ -23,4 +23,12 @@ class DefaultController extends Controller
     {
         return $this->render('MultiServiceGsmFrontBundle:Default:affichDevis.html.twig');
     }
+
+    public function marqAction()
+    {
+         $em = $this->getDoctrine()->getManager();
+
+        $marques = $em->getRepository('MultiServiceGsmFrontBundle:Marque')->findAll();
+        return $this->render('MultiServiceGsmFrontBundle:Default:pageMarque.html.twig',array('marques'=>$marques));
+    }
 }

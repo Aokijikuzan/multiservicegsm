@@ -1,10 +1,20 @@
 
-		{% if reparations is defined %}
+		{% if tarifs is defined %}
 			
-			    {% for repartion in reparations %}
+				{% set var=1%}
+			    {% for tarif in tarifs %}
 			    	{% if var==1 %}
-			    			<h1>{{modele.marque}}</h1>
+			    			<h1>{{tarif.model}}</h1>
 						{% set var=2%}
+					{% endif %}
+						<div class="col-xs-12 col-sm-4 col-md-2 rep">
+	                  	<section class="rep1">
+	                  		<a>
+		                  	<img src="{{ asset('images/reparations/'~tarif.reparation~'.png') }}" /> 
+		                  </a>
+		                    <p class"nam">{{tarif.reparation}}</p>
+		                </section>
+	              </div>
 			    {% endfor %}
 			   
 		{% endif %}

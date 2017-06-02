@@ -52,3 +52,7 @@ multi_service_gsm_front_devis_reparation:
 multi_service_gsm_front_formDevis:
         path: /formulaire_devis
         defaults: {_controller: MultiServiceGsmFrontBundle:Default:dev}
+
+multi_service_gsm_front_marques:
+        path: /marques
+        defaults: { _controller: MultiServiceGsmFrontBundle:Default:marq}

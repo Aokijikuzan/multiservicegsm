@@ -37,7 +37,7 @@ font-family: 'Pacifico', cursive;
 body
 {
 	font-family: 'Pacifico', cursive;
-	background: radial-gradient( circle at center top, white, grey);
+	background: radial-gradient( circle at center top, white,  #66ccff);
 	height: 100%;
 }
 .padis

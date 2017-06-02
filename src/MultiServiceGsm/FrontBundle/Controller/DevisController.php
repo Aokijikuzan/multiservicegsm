@@ -61,22 +61,19 @@ class DevisController extends Controller
 		$reparations=  $em->getRepository('MultiServiceGsmFrontBundle:Tarif')->findByModel($modeles);
 
 		$reparation=array();
-        if($reparations)
-        {
-        	foreach ($reparations as $reparationne) {
-        		$reparation[]=$reparationne->getReparation()->getSlug();
-        	}
-        }else
-        {
-        	$reparation=null;
-        }
-        $response= new JsonResponse();
+                if($reparations)
+                {
+                	foreach ($reparations as $reparationne) {
+                		$reparation[]=$reparationne->getReparation()->getSlug();
+                	}
+                }else
+                {
+                	$reparation=null;
+                }
+                $response= new JsonResponse();
 
-        return $response->setData(array('reparation' =>$reparation
-        ));
-
-
-
+                return $response->setData(array('reparation' =>$reparation
+                ));
 	}
 
 }

@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="tarif")
  * @ORM\Entity(repositoryClass="MultiServiceGsm\FrontBundle\Repository\TarifRepository")
  */
+
 class Tarif
 {
     /**

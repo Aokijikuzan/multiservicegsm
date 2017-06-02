@@ -130,7 +130,9 @@ class Modele
     }
      public function __ToString()
     {
-        return $this->nomModele;
+        
+            return (string) $this->getNomModele();
+       
     }
 
     /**
