@@ -156,8 +156,7 @@ fos_user:
         sender_name: Demo App
     
     registration:
-        form:
-            type: MultiServiceGsm\UserBundle\Form\RegistrationType
+        
         confirmation:
             enabled: true
             template: '@FOSUser/Registration/email.txt.twig'        
@@ -177,9 +176,3 @@ fos_user:
             #template:   email/password_resetting.email.twig
     service:
         mailer: fos_user.mailer.twig_swift
-
-    profile:
-        form:
-            type: MultiServiceGsm\UserBundle\Form\profileFormType
-            name: fos_user_profile_form
-            validation_groups: [Profile, Default]

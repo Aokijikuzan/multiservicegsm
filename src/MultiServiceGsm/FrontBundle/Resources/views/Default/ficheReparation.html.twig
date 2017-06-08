@@ -1,10 +1,11 @@
 {% if tarifs is defined %}
-	{% for tarif in tarifs %}
+
+	
 		<div class="row">
 				<div class="col-md-12">
 					<div class="col-md-3">
 						<a>
-					      <img src="{{ asset('images/reparations/'~tarif.reparation~'.png') }}" /> 
+					      <img src="{{ asset('images/reparations/'~tarifs.reparation~'.png') }}" /> 
 					    </a> 
 					</div>
 					<div class="col-md-9">
@@ -29,5 +30,6 @@
 		<div class="row">
 			Réparation en l'envoyant par la poste 
 		</div>
-		{% endfor %}
+	
+
 {% endif %}

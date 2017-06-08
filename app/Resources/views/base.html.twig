@@ -37,17 +37,19 @@
         {% block body %}{% endblock body%}
 
             
-       
+     
         
-        {% javascripts '@MultiServiceGsmFrontBundle/Resources/public/js/*' %}
-            <script src="{{ asset_url }}"></script>
-        {% endjavascripts %}
+
         {% javascripts '@jquery' '@bootstrap_js' %}
-        <script type="text/javascript" src="{{ asset_url }}"></script>
+            <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
-        
-        
-        
+        {% javascripts '@MultiServiceGsmFrontBundle/Resources/public/js/*' %}
+          <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        <script  src="{{asset('js/main.js') }}"></script>
+
+      
        
     </body>
 

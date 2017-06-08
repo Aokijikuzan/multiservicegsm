@@ -34,27 +34,7 @@ class User extends BaseUser
         return $this->id;
     }
 
-     /**
-     * @ORM\Column(type="string", length=255)
-     *
-     *
-     */
-    protected $nom;
-     
-    /**
-     * @ORM\Column(type="string", length=255)
-     *
-     *
-     */
-    protected $prenom;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     *
-     *
-     */
-    protected $adressepostal; 
-
+    
     /**
      * Set name
      *
@@ -156,4 +136,3 @@ class User extends BaseUser
         $this->role=array('ROLE_USER');
     }
 }
-

@@ -4,7 +4,10 @@
 
 		<div class=" col-sm-6">
 			{% block fos_user_content %}
+				<h2>profil d'inscription</h2>
 				{% include "@FOSUser/Profile/show_content.html.twig" %}
+		
+				{% include '/Utilisateur/profilU.html.twig' %}
 			{% endblock fos_user_content %}
 		</div>
 
@@ -12,7 +15,7 @@
 			{% block fos_user_content1 %}		
 					<div style="padding-bottom:20px;">
 						<button type="buttton" class="btn btn-secondary">
-							<a href=" {{path('fos_user_profile_edit')}}">Modifier votre profil</a>
+							<a href="{{ path('fos_user_profile_edit') }}">Modifier votre profil d'inscription</a>
 						</button>
 					</div>
 					<br>
@@ -24,8 +27,14 @@
 					<br>
 					<div style="padding-bottom:20px;">
 						<button type="buttton" class="btn btn-secondary">
-							<a href=" ">afficher votre historique de commande</a>
+							<a href="">Modifier vos informations</a>
 						</button>
+					</div>
+					<br>
+					<div style="padding-bottom:20px;">
+						<button type="buttton" class="btn btn-secondary">
+				<!--			<a href="#">afficher votre historique de commande</a>
+					-->	</button>
 					</div>
 					<br>
 					<div style="padding-bottom:20px;">
@@ -34,7 +43,7 @@
 						</div>
 						<form type="buttton" class="btn btn-warning"
 							onClick="return confirm('etes vous sur(e)?')">
-							<a href="">supprimer votre compte</a>
+							<a href="{{ path('multi_service_gsm_user_delete',{'id':id} ) }}">supprimer votre compte</a>
 
 						</form>
 					</div>

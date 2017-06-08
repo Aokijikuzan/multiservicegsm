@@ -61,9 +61,13 @@
             </div>
         </div>
 
-         {% javascripts '@jquery' '@bootstrap_js' %}
-            <script type="text/javascript" src="{{ asset('web/js/bootstrap.min.js') }}"></script>
-             <script type="text/javascript" src="{{ asset('web/js/jquery.js') }}"></script>
+       
+        {% javascripts '@jquery' '@bootstrap_js' %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        {% javascripts '@MultiServiceGsmFrontBundle/Resources/public/js/*' %}
+          <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}
         {% include '::footer.html.twig' %}
     </body>

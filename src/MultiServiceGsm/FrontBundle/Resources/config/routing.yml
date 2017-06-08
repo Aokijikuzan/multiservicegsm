@@ -28,17 +28,20 @@ multi_service_gsm_front_info:
         defaults: { _controller: MultiServiceGsmFrontBundle:Default:inf }
 
 multi_service_gsm_front_appl:
-        path: /{id}/modelapp
+        path: /{slug}/modelapp
         defaults: { _controller: MultiServiceGsmFrontBundle:Appl:app }
 
 multi_service_gsm_front_model_reparation:
-        path: /{id}/modelrep
+        path: /{marque}/{modele}/modelrep
         defaults: { _controller: MultiServiceGsmFrontBundle:RepaModel:rep }
+
+
 
 
 multi_service_gsm_front_devis:
         path: /{id}/devis
         defaults: { _controller: MultiServiceGsmFrontBundle:Devis:dev }
+
 multi_service_gsm_front_devis_marque:
         path: /allMarque
         defaults: { _controller: MultiServiceGsmFrontBundle:Devis:marqueAjax}
@@ -48,6 +51,13 @@ multi_service_gsm_front_devis_modele:
 multi_service_gsm_front_devis_reparation:
         path: /{slug}/reparation
         defaults: { _controller: MultiServiceGsmFrontBundle:Devis:reparationAjax}
+multi_service_gsm_front_devis_prix_reparation:
+        path: /prixreparation
+        defaults: { _controller: MultiServiceGsmFrontBundle:Devis:affichprix}
+
+
+
+
 
 multi_service_gsm_front_formDevis:
         path: /formulaire_devis
@@ -58,6 +68,6 @@ multi_service_gsm_front_marques:
         defaults: { _controller: MultiServiceGsmFrontBundle:Default:marq}
 
 multi_service_gsm_front_fiche_reparation:
-        path: /{id}/fiche
+        path: /{marque}/{modele}/{reparation}
         defaults: { _controller: MultiServiceGsmFrontBundle:FicheReparation:fiche}
 

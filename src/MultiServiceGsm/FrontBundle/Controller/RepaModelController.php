@@ -9,18 +9,24 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class RepaModelController extends Controller
 {
-    public function repAction(Marque $marque,Modele $modele)
+    public function repAction( $marque, $modele)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $modeles = $em->getRepository('MultiServiceGsmFrontBundle:Modele')->findByMarque($marque);
+        //$marques = $em->getRepository('MultiServiceGsmFrontBundle:Marque')->findBySlug($marque);
+
+        $modeles = $em->getRepository('MultiServiceGsmFrontBundle:Modele')->findBySlug($modele);
 
  	//	$reparations = $em->getRepository('MultiServiceGsmFrontBundle:Reparation')->findAll();
         
-        $tarifs = $em->getRepository('MultiServiceGsmFrontBundle:Tarif')->findByModel($modele);
+        $tarifs = $em->getRepository('MultiServiceGsmFrontBundle:Tarif')->findByModel($modeles);
         //return $this->render('MultiServiceGsmFrontBundle:Marque:Apple.html.twig', array(
        //     'modeles' => $modeles
-       return $this-> render('MultiServiceGsmFrontBundle:Modele:affichReparations.html.twig',array('tarifs'=>$tarifs));
+       return $this-> render('MultiServiceGsmFrontBundle:Modele:affichReparations.html.twig',
+       	array('tarifs'=>$tarifs,
+       			'modele'=>$modeles,
+       			'marque'=>$marque
+       				));
 
     }
    

@@ -13,17 +13,31 @@ use Symfony\Component\HttpFoundation\Request;
 class FicheReparationController extends Controller
 {
 
-	public function ficheAction(Modele $modele)
+       
+	public function ficheAction($marque, $modele, $reparation)
     {
         $em = $this->getDoctrine()->getManager();
 
-
- 	
-        
-        $tarifs = $em->getRepository('MultiServiceGsmFrontBundle:Tarif')->findByModel($modele);
+        $model  = $em->getRepository('MultiServiceGsmFrontBundle:Modele')->findOneBy(array('slug'=>$modele));
+        $reparations= $em->getRepository('MultiServiceGsmFrontBundle:Reparation')->findOneBy(array('slug'=>$reparation));
+        $tarifs = $em->getRepository('MultiServiceGsmFrontBundle:Tarif')->findByModel($model);
         //return $this->render('MultiServiceGsmFrontBundle:Marque:Apple.html.twig', array(
        //     'modeles' => $modeles
-       return $this-> render('MultiServiceGsmFrontBundle:Default:pageFicheReparation.html.twig',array('tarifs'=>$tarifs));
+        $tmp=null;
+        foreach ($tarifs as $t) {
+        	
+        	if($t->getReparation() == $reparations)
+        	{
+        		$tmp=$t;
+        		
+        		break;
+        	}
+        }
+        
+       
+
+       return $this-> render('MultiServiceGsmFrontBundle:Default:pageFicheReparation.html.twig',
+       	array('tarifs'=>$tmp));
 
     }
 }

@@ -4,10 +4,12 @@ namespace MultiServiceGsm\FrontBundle\Controller;
 use MultiServiceGsm\FrontBundle\Entity\Modele;
 use MultiServiceGsm\FrontBundle\Entity\Marque;
 use MultiServiceGsm\FrontBundle\Entity\Reparation;
+use MultiServiceGsm\FrontBundle\Entity\Tarif;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Response;
 class DevisController extends Controller
 {
 	public function marqueAjaxAction(Request $request)
@@ -76,4 +78,12 @@ class DevisController extends Controller
                 ));
 	}
 
+        public function affichprixAction(Request $request)
+        {
+                $tag=$request->query->get('modeles');
+                return $this->redirectToRoute('multi_service_gsm_front_fiche_reparation', array ('marque'=>$request->query->get('marques'),
+                                                                                                 'modele'=>$request->query->get('modeles'),
+                                                                                                 'reparation'=>$request->query->get('reparations')));
+                //        return new Response("ici modele:".$tag);
+        }
 }
