@@ -71,3 +71,9 @@ multi_service_gsm_front_fiche_reparation:
         path: /{marque}/{modele}/{reparation}
         defaults: { _controller: MultiServiceGsmFrontBundle:FicheReparation:fiche}
 
+
+
+multi_service_gsm_front_adresse:
+    path: /adressepostale
+    defaults: { _controller: MultiServiceGsmFrontBundle:Adresse:add }
+    methods:  [GET, POST]

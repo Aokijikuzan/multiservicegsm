@@ -27,7 +27,7 @@
 					<br>
 					<div style="padding-bottom:20px;">
 						<button type="buttton" class="btn btn-secondary">
-							<a href="">Modifier vos informations</a>
+							<a href=" {{path('multi_service_gsm_front_adresse')}}">ajouter une adresse postale</a>
 						</button>
 					</div>
 					<br>
@@ -43,7 +43,7 @@
 						</div>
 						<form type="buttton" class="btn btn-warning"
 							onClick="return confirm('etes vous sur(e)?')">
-							<a href="{{ path('multi_service_gsm_user_delete',{'id':id} ) }}">supprimer votre compte</a>
+							<a href="{{ path('multi_service_gsm_user_delete',{'id' : user.id } ) }}">supprimer votre compte</a>
 
 						</form>
 					</div>

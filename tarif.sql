@@ -25,14 +25,14 @@ SET time_zone = "+00:00";
 --
 -- Structure de la table `tarif`
 --
-
+/*
 CREATE TABLE `tarif` (
   `id` int(11) NOT NULL,
   `prix` double NOT NULL,
   `model_id` int(11) NOT NULL,
   `reparation_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
+*/
 --
 -- Contenu de la table `tarif`
 --
@@ -73,31 +73,3 @@ INSERT INTO `tarif` (`id`, `prix`, `model_id`, `reparation_id`) VALUES
 --
 -- Index pour la table `tarif`
 --
-ALTER TABLE `tarif`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `IDX_E7189C97975B7E7` (`model_id`),
-  ADD KEY `IDX_E7189C997934BA` (`reparation_id`);
-
---
--- AUTO_INCREMENT pour les tables exportées
---
-
---
--- AUTO_INCREMENT pour la table `tarif`
---
-ALTER TABLE `tarif`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
---
--- Contraintes pour les tables exportées
---
-
---
--- Contraintes pour la table `tarif`
---
-ALTER TABLE `tarif`
-  ADD CONSTRAINT `FK_E7189C97975B7E7` FOREIGN KEY (`model_id`) REFERENCES `modele` (`id`),
-  ADD CONSTRAINT `FK_E7189C997934BA` FOREIGN KEY (`reparation_id`) REFERENCES `reparation` (`id`);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
