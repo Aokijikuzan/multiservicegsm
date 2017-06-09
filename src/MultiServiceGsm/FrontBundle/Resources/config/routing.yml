@@ -77,3 +77,11 @@ multi_service_gsm_front_adresse:
     path: /adressepostale
     defaults: { _controller: MultiServiceGsmFrontBundle:Adresse:add }
     methods:  [GET, POST]
+
+multi_service_gsm_front_panier:
+    path: /panier
+    defaults: { _controller: MultiServiceGsmFrontBundle:Panier:panier}
+
+multi_service_gsm_front_livraison:
+    panier: /panier/livraison
+    defaults: { _controller: MultiServiceGsmFrontBundle:Panier:livraison }
