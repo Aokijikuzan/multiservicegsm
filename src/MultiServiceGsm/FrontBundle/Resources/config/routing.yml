@@ -27,6 +27,10 @@ multi_service_gsm_front_info:
         path: /info
         defaults: { _controller: MultiServiceGsmFrontBundle:Default:inf }
 
+multi_service_gsm_front_localisation:
+    path: /localisation
+    defaults: { _controller: MultiServiceGsmFrontBundle:Default:localisation}
+
 multi_service_gsm_front_appl:
         path: /{slug}/modelapp
         defaults: { _controller: MultiServiceGsmFrontBundle:Appl:app }
@@ -83,5 +87,17 @@ multi_service_gsm_front_panier:
     defaults: { _controller: MultiServiceGsmFrontBundle:Panier:panier}
 
 multi_service_gsm_front_livraison:
-    panier: /panier/livraison
+    path: /panier/livraison
     defaults: { _controller: MultiServiceGsmFrontBundle:Panier:livraison }
+
+multi_service_gsm_front_validation:
+    path: /panier/validation
+    defaults: { _controller: MultiServiceGsmFrontBundle:Panier:validation }
+
+multi_service_gsm_front_ajouter:
+    path: /ajouter/{id}
+    defaults: { _controller: MultiServiceGsmFrontBundle:Panier:ajout }
+
+multi_service_gsm_front_suppression:
+    path: /supprimer/{id}
+    defaults: { _controller: MultiServiceGsmFrontBundle:Panier:supprim}

@@ -1,35 +1,44 @@
 {% if tarifs is defined %}
 
-	
-		<div class="row">
-				<div class="col-md-12">
-					<div class="col-md-3">
-						<a>
-					      <img src="{{ asset('images/reparations/'~tarifs.reparation~'.png') }}" /> 
-					    </a> 
-					</div>
-					<div class="col-md-9">
-						commentaire
-						commentaire
-						commentaire
-						commentaire
-						commentaire
-						commentairecommentaire
-						commentaire
-						commentaire
-						commentairecommentaire
-						commentaire
-						commentairecommentaire
-						
-					</div>
-				</div>	
+	<div class="row">
+		<div class="col-md-12">
+			<div class="col-md-3">
+				<a>
+			      <img src="{{ asset('images/reparations/'~tarifs.reparation~'.png') }}" /> 
+			    </a> 
 			</div>
-		<div class="row">
-			Réparation directement sur place
+			<div class="col-md-9">
+				<div class="row">
+					<i class="fa fa-tags" aria-hidden="true"><strong>{{tarifs.prix}}€</strong></i>
+				</div>
+				<div class="row">
+					commentaire
+					commentaire
+					commentaire
+					commentaire
+					commentaire
+					commentairecommentaire
+					commentaire
+					commentaire
+					commentairecommentaire
+					commentaire
+					commentairecommentaire
+				</div>
+			</div>
+		</div>	
+		<div class=" reparationplace" >
+			<a href="{{ path('multi_service_gsm_front_localisation') }}" role="button" class="btn btn-info " style="margin-top:40px;">Réparation directement sur place
+			</a>
+			
 		</div>
-		<div class="row">
-			Réparation en l'envoyant par la poste 
+		<div class="reparationdistance" >
+			<a href="{{ path('multi_service_gsm_front_ajouter',{ 'id' : tarifs.id }) }}" role="button" class="btn btn-info" style="margin-top: 40px;">Réparation en l'envoyant par la poste 
+			</a>
 		</div>
-	
+	</div>
+	<div class="row">
+		<br>
+		<i class="fa fa-info-circle" aria-hidden="true">cliquer sur le bouton "Réparation en l'envoyant par la poste" revient à  ajouter cette réparation dans le panier.</i>
+	</div>
 
 {% endif %}
