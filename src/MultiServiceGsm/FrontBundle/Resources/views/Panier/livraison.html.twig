@@ -1,17 +1,18 @@
 {% extends "::base.html.twig"%}
-
+{% set totalTTC = 0%}
 {% block body %}
 	{% include '::menu.html.twig' %}
 	<div class="container">
 		 <div class="row">
 	        <div class="span12">
-	            <h2>Livraison</h2>
+	            <h2>Récapitulatif de la commande</h2>
 	            <div id="collapseOne" class="accordion-body collapse in">
-	                <div class="accordion-inner">
-	                    <div class="span4">
-
+	                <div class="accordion-inner col-md-12">
+	                    <div class="span4 col-md-4">
+	                		<h2>Pour se connecter ou s'inscrire</h2>
+	                    	<a href="{{ path('fos_user_security_login')}}" class="btn btn-info" role="button">se connecter/s'inscrire</a>
 	                    </div>
-	                     <div class="span4 offset2">
+	                     <div class="span4 offset2 col-md-4">
 	                        <h4>Ajouter une nouvelle adresse</h4>
 	                        <form>
 	                            <label>Nom</label>
@@ -28,15 +29,21 @@
 	                            <br>
 	                            <label>Ville</label>
 	                            <br>
-	                            <input type="text">
-	                            <br>
+	                            <input type="text" id="ville" placeholder="Entrez une ville" autocomplete="off">
+	                            <ul>
+								  <li data-vicopo="#ville">
+								    <strong data-vicopo-code-postal></strong>
+								    <span data-vicopo-ville></span>
+								  </li>
+								</ul>
+	                   
 	                            <label>Code postal</label>
 	                            <br>
 	                            <input type="text">
 	                            <br>
-	                            <label>Ville</label>
-	                            <br>
-	                            <input type="text">
+	                        	<label>Complément à l'adresse</label>  
+	                        	<br>
+	                        	<input type="text">
 	                            <br>
 	                            <label>Téléphone</label>
 	                            <br>
@@ -45,6 +52,40 @@
 	                            <br />
 	                            <button class="btn btn-primary">Ajouter</button>
 	                        </form>
+	                    </div>
+	                    <div class="col-md-4">
+	                    	<h2>Votre parnier</h2>
+			                <table class="table table-striped table-hover">
+			                    <thead >
+			                        <tr>
+			                            <th>Références</th>
+			                            <th>Quantité</th>
+			                            <th>Prix unitaire</th>
+			                            <th>Total HT</th>
+			                        </tr>
+			                    </thead>
+			                    <tbody>
+			                    	{%if produits|length == 0%}
+			                    		<tr>
+			                    			 <td colspan="4"><center>Aucun articles dans votre panier</center></td>
+			                    		</tr>
+			                    	{% endif %}
+
+			                    	{% for produit in produits %}
+			                        	<tr>
+					                        <form action="{{ path('multi_service_gsm_front_ajouter', { 'id' : produit.id }) }}" method="get">
+					                            <td>{{ (produit.reparation).nomReparation ~ " " ~ (produit.model)}}</td>
+					                            <td>{{panier[produit.id]}}</td>
+					                            <td>{{ produit.prix }} €</td>
+					                            <td>{{ produit.prix * panier[produit.id] }} €</td>
+					                        </form>
+					                    </tr>
+					                 {% set totalTTC = totalTTC + (produit.prix * panier[produit.id]) %}
+			                        
+			                        {% endfor %}
+			                        
+			                    </tbody>
+			                </table>
 	                    </div>
 	                </div>
 	            </div>

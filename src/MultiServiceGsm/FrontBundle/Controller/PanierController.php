@@ -11,7 +11,8 @@ class PanierController extends Controller
 {
 	public function panierAction()
 	{
-		$session = $this->get('session');
+		
+        $session = $this->get('session');
         if (!$session->has('panier'))
         {
             $session->set('panier', array());
@@ -26,9 +27,19 @@ class PanierController extends Controller
 	
 
 
-    public function livraisonAction()
+    public function recapitulatifAction()
 	{
-		return $this->render('MultiServiceGsmFrontBundle:Panier:livraison.html.twig');
+        
+        $session = $this->get('session');
+        if (!$session->has('panier'))
+        {
+            $session->set('panier', array());
+        }
+        $em = $this->getDoctrine()->getManager();
+        $produits = $em->getRepository('MultiServiceGsmFrontBundle:Tarif')->findById(array_keys($session->get('panier')));
+     
+		return $this->render('MultiServiceGsmFrontBundle:Panier:livraison.html.twig', array('produits' => $produits,'panier' => $session->get('panier'))
+        );
 	}
 	
 

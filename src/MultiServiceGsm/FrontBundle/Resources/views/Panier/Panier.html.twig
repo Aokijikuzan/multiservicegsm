@@ -1,5 +1,6 @@
 {% extends "::base.html.twig"%}
 
+{% set totalTTC = 0%}
 {% block body %}
 	{% include '::menu.html.twig' %}
 	<div class="container">
@@ -13,10 +14,11 @@
             
 				<h2>Votre parnier</h2>
 	                <table class="table table-striped table-hover">
-	                    <thead>
+	                    <thead >
 	                        <tr>
 	                            <th>Références</th>
 	                            <th>Quantité</th>
+	                            <th>Supprimer</th>
 	                            <th>Prix unitaire</th>
 	                            <th>Total HT</th>
 	                        </tr>
@@ -31,32 +33,33 @@
 	                    	{% for produit in produits %}
 	                        	<tr>
 			                        <form action="{{ path('multi_service_gsm_front_ajouter', { 'id' : produit.id }) }}" method="get">
-			                            <td>{{ (produit.reparation).nomReparation }}</td>
-			                            <td>
+			                            <td>{{ (produit.reparation).nomReparation ~ " " ~ (produit.model)}}</td>
+			                            <td>{{panier[produit.id]}}</td>
+			                            <td onClick="return confirm('etes vous sur(e)?')">
 			                                <a href="{{ path('multi_service_gsm_front_suppression', { 'id' : produit.id }) }}"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 			                            </td>
 			                            <td>{{ produit.prix }} €</td>
 			                            <td>{{ produit.prix * panier[produit.id] }} €</td>
 			                        </form>
 			                    </tr>
-			            {#}      {% set totalTTC = totalTTC + (produit.prix * panier[produit.id])|tva(produit.tva.multiplicate) %}
-	                        {#}
+			                 {% set totalTTC = totalTTC + (produit.prix * panier[produit.id]) %}
+	                        
 	                        {% endfor %}
-	                        }
+	                        
 	                    </tbody>
 	                </table>
 	           		{% if produits|length != 0 %}
 			            <dl class="dl-horizontal pull-right">
-			            {#}    <dt>Total HT :</dt><dd>{{ totalHT }} €</dd>
-			                
+			            {#}      
+			              <dt>Total HT :</dt><dd>{{ totalHT }} €</dd>
 			                {% for key, tva in refTva %}
 			                    <dt>TVA {{ key }} :</dt><dd>{{ tva }} €</dd>
 			                {% endfor %}
-
+						{#}
 			                <dt>Total TTC :</dt><dd>{{ totalTTC }} €</dd>
-			           {#} </dl>
+			            </dl>
 	            		<div class="clearfix"></div>
-	            		<a href="{{ path('multi_service_gsm_front_livraison') }}" class="btn btn-success pull-right">Valider mon panier</a>
+	            		<a href="{{ path('multi_service_gsm_front_recapitulatif') }}" class="btn btn-success pull-right">recapitulatif du panier</a>
 					{% endif %}	            
 	            	<a href="index.php" class="btn btn-primary">Continuer mes achats</a>
 			</div>

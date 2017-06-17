@@ -86,9 +86,9 @@ multi_service_gsm_front_panier:
     path: /panier
     defaults: { _controller: MultiServiceGsmFrontBundle:Panier:panier}
 
-multi_service_gsm_front_livraison:
-    path: /panier/livraison
-    defaults: { _controller: MultiServiceGsmFrontBundle:Panier:livraison }
+multi_service_gsm_front_recapitulatif:
+    path: /panier/recapitulatif
+    defaults: { _controller: MultiServiceGsmFrontBundle:Panier:recapitulatif }
 
 multi_service_gsm_front_validation:
     path: /panier/validation
