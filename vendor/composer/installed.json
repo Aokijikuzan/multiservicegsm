@@ -2989,5 +2989,35 @@
             "wizard",
             "wizard plugin"
         ]
+    },
+    {
+        "name": "kylekatarnls/vicopo",
+        "version": "1.1.8",
+        "version_normalized": "1.1.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kylekatarnls/vicopo.git",
+            "reference": "f5b74132d039bea0a7a5129e30f79468201995e7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kylekatarnls/vicopo/zipball/f5b74132d039bea0a7a5129e30f79468201995e7",
+            "reference": "f5b74132d039bea0a7a5129e30f79468201995e7",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2016-08-28T11:07:11+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Vicopo\\Vicopo\\": "src/Vicopo/Vicopo/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "description": "API HTTP et Script pour trouver les villes à partir d'un code postal et code postaux à partir d'une ville",
+        "homepage": "https://vicopo.selfbuild.fr"
     }
 ]

@@ -20,6 +20,10 @@ class ComposerStaticInitcc5d363adbe6048c38a15e6c61be0ef8
     );
 
     public static $prefixLengthsPsr4 = array (
+        'V' => 
+        array (
+            'Vicopo\\Vicopo\\' => 14,
+        ),
         'T' => 
         array (
             'Tests\\' => 6,
@@ -83,6 +87,10 @@ class ComposerStaticInitcc5d363adbe6048c38a15e6c61be0ef8
     );
 
     public static $prefixDirsPsr4 = array (
+        'Vicopo\\Vicopo\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kylekatarnls/vicopo/src/Vicopo/Vicopo',
+        ),
         'Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/tests',

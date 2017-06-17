@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4943d88a5017315ba26ba4a538972dfe",
+    "content-hash": "9bc33914aad6ec6ea991d9721f5915fe",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -1364,6 +1364,34 @@
                 "minification"
             ],
             "time": "2016-11-11T18:43:20+00:00"
+        },
+        {
+            "name": "kylekatarnls/vicopo",
+            "version": "1.1.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kylekatarnls/vicopo.git",
+                "reference": "f5b74132d039bea0a7a5129e30f79468201995e7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kylekatarnls/vicopo/zipball/f5b74132d039bea0a7a5129e30f79468201995e7",
+                "reference": "f5b74132d039bea0a7a5129e30f79468201995e7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Vicopo\\Vicopo\\": "src/Vicopo/Vicopo/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "API HTTP et Script pour trouver les villes à partir d'un code postal et code postaux à partir d'une ville",
+            "homepage": "https://vicopo.selfbuild.fr",
+            "time": "2016-08-28T11:07:11+00:00"
         },
         {
             "name": "leafo/scssphp",
