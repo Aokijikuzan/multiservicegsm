@@ -1,21 +1,24 @@
-<div class="step">
-  <div class="setpbar"></div>
-  <div class="step1">
-    <div class="bull"></div>
-    <a href="{{ path('multi_service_gsm_front_marques') }}" title="Marque">Marque</a>
-  </div>
-  <div class=" step1 step2">
-    <div class="bull"></div>
-    <a href="#" title="Marque">Modèle</a>
-  </div>
-  <div class="step1 step3">
-    <div class="bull"></div>
-    <a href="#" title="Marque">panne</a>
-  </div>
-  <div class=" step1  step4">
-    <div class="bull"></div>
-    <a href="#" title="Marque">Réparations</a>
-  </div>
+<div class="barstep ">
+    <div class="col-md-offset-4">
+      <div class="step1">
+          <a href="{{ path('multi_service_gsm_front_marques') }}" type="button" class="btn btn-cirle btn-primary">1</a>
+           <p>Marque</p>
+      </div>
+      <div class=" step1">
+        <a href="#" type="button" class ="btn btn-cirle btn-default">2</a>
+        <p>Modèle</p>
+      </div>
+      <div class="step1">
+        <a href="#" type="button" class="btn btn-cirle btn-default">3</a>
+        <p>panne</p>
+      </div>
+      <div class=" step1">
+        <a href="#" type="button" class="btn btn-cirle btn-default">4</a>
+        <p>Réparations</p>
+      </div>
+      <!--
+    -->
+    </div>
 </div>
  {% if marques is defined %}
 

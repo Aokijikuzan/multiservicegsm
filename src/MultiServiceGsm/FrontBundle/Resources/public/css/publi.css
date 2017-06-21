@@ -108,20 +108,13 @@ h1,h2,h3
 	border-top-width: 50px;
 
 }
-.barstep
+.etapp
 {
-	padding: 20px;
-	background: #fff;
-	margin: 0 -15px 40px -15px;
-	position: relative;
-	padding-top: 20px;
-	height: 85px;
+	background-color:#ADFF2F;
 }
 .barstep .step1
 {
-	/*float: left;
-	*/
-	display: table-cell;
+	float: left;
 	position: relative;
 	width: 25%;
 	text-align: center;
@@ -132,35 +125,25 @@ h1,h2,h3
 	top: 13px;
 	width: 76%;
 	margin: 0 auto;
-	border-bottom: 2px solid #4FF2F5;
+	border-bottom: 2px solid   #fd8341;
 }
 .barstep .step1 .bull
 {
 	margin: 0 auto;
 	width: 47px;
 	height: 26px;
-	border:2px solid  #66ccff;
+	/*border:2px solid   #66ccff;
+	*/
 	border-radius: 10px;
-	 
 }
-.barstep .step1 .bull.full
+.barstep .step1 .bull .full
 {
-	background: #4FF2F5;
+	background-color: : #ADFF2F;
 }
 .barstep .step1 a
 {
-	color: black;
+	color: #6e797e;
 	font-weight: 700;
-}
-.btn-circle
-{
-	width: 30px;
-    height: 30px;
-    text-align: center;
-    padding: 6px 0;
-    font-size: 12px;
-    line-height: 1.428571429;
-    border-radius: 15px;
 }
 .reparationplace
 {

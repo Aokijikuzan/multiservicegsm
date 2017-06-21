@@ -246,6 +246,7 @@ class Adresse
      */
     public function getTelephone()
     {
+        
         return $this->telephone;
     }
 }
