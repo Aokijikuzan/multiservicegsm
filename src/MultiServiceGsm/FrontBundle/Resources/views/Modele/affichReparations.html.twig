@@ -4,11 +4,6 @@
 	
 	{% include ( '::menu.html.twig')  %}
 	<div class="container">
-		<div class="pager">
-			<p>
-			  <a href="{{ path('multi_service_gsm_front_marques') }}">Marques</a>
-			</p>
-		</div>
 		<div class=" row col-md-12" style="padding-left:0px;padding-right:0px;">
 			
 			<div class="col-md-3">
@@ -18,7 +13,7 @@
 			<div class="col-md-9" style="padding-left:0px;padding-right:0px;">
 				{% include ( 'MultiServiceGsmFrontBundle:Default:pageReparationModele.html.twig' ) %}
 			</div>
-
+		</div>
 		</div>
 	</div>
 
