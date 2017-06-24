@@ -3,8 +3,15 @@
 {% block body %}
 {% include '::menu.html.twig'  %}
 	<div class="container">
-	
-		{% include '::affichLogo.html.twig' %}
+		<div class=" row col-md-12" style="padding-left:0px;padding-right:0px;">
+
+			<div class="col-md-3">
+				{% include 'MultiServiceGsmFrontBundle:Default:affichDevis.html.twig'%}
+			</div>
+			<div class="col-md-9" style="padding-left:0px;padding-right:0px;">
+				{% include '::affichLogo.html.twig' %}
+			</div>
+		</div>
 	</div>
 {% include '::footer.html.twig' %}
 {% endblock %}

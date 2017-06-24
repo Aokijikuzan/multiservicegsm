@@ -4,6 +4,8 @@ namespace MultiServiceGsm\FrontBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Reparation
@@ -41,7 +43,13 @@ class Reparation
     *@ORM\column(length=255, unique=true)
     */
     private $slug;
-
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="commentaire", type="string", length=1000)
+     */
+    private $commentaire;
     
 
     /**
@@ -132,5 +140,29 @@ class Reparation
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set commentaire
+     *
+     * @param string $commentaire
+     *
+     * @return Reparation
+     */
+    public function setCommentaire($commentaire)
+    {
+        $this->commentaire = $commentaire;
+
+        return $this;
+    }
+
+    /**
+     * Get commentaire
+     *
+     * @return string
+     */
+    public function getCommentaire()
+    {
+        return $this->commentaire;
     }
 }

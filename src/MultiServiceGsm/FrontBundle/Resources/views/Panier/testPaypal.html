@@ -8,7 +8,7 @@
         env: 'sandbox', // Or 'sandbox'
 
         client: {
-            sandbox:    'Aby3PAF_Dt_3us1mb2Tf5HY2Vn0TJ2TL-xJV-gpVoDWHjbxtywGp9i4vTm_PKrvavkLppyKK0ooYW-Xk',
+            sandbox:    'Ae6yL56cULqaVEHBdapt-Uovwc8ZW2EHOp_WM97KqsPmu-t13oF7vUwdKutPALb1edgBpbd4o25N3njo',
             production: 'xxxxxxxxx'
         },
 
@@ -18,7 +18,7 @@
             return actions.payment.create({
                 transactions: [
                     {
-                        amount: { total: '10.00', currency: 'USD' }
+                        amount: { total: '10.00', currency: 'EUR' }
                     }
                 ]
             });
@@ -26,7 +26,7 @@
 
         onAuthorize: function(data, actions) {
             return actions.payment.execute().then(function(payment) {
-
+                    window.alert('paiement validé');
                 // The payment is complete!
                 // You can now show a confirmation message to the customer
             });

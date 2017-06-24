@@ -20,7 +20,7 @@
 	                            <th>Quantité</th>
 	                            <th>Supprimer</th>
 	                            <th>Prix unitaire</th>
-	                            <th>Total HT</th>
+	                            <th>Total TTC</th>
 	                        </tr>
 	                    </thead>
 	                    <tbody>
@@ -50,13 +50,12 @@
 	                </table>
 	           		{% if produits|length != 0 %}
 			            <dl class="dl-horizontal pull-right">
-			            {#}      
-			              <dt>Total HT :</dt><dd>{{ totalHT }} €</dd>
-			                {% for key, tva in refTva %}
-			                    <dt>TVA {{ key }} :</dt><dd>{{ tva }} €</dd>
-			                {% endfor %}
-						{#}
-			                <dt>Total TTC :</dt><dd>{{ totalTTC }} €</dd>
+			                
+			           
+			
+			                <dt>TVA:</dt><dd>20%</dd>
+						
+			                <dt>Total TTC :</dt><dd>{{totalTTC}} €</dd>
 			            </dl>
 	            		<div class="clearfix"></div>
 	            		<a href="{{ path('multi_service_gsm_front_recapitulatif') }}" class="btn btn-success pull-right">recapitulatif du panier</a>

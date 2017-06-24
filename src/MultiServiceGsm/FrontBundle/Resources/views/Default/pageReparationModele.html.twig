@@ -5,18 +5,24 @@
             <p>Marque</p>
       </div>
 		{% if tarifs is defined %}
+		
 		<div class=" step1">
-        <a href="#" type="button" class ="btn btn-cirle btn-primary">2</a>
-        <p>Modèle</p>
-      </div>
+	        <a href="{{ path('multi_service_gsm_front_appl', {'slug':((tarifs[0].model).marque).slug } ) }}" type="button" class ="btn btn-cirle btn-primary">2</a>
+	        <p>Modèle</p>
+	    </div>
+	   
+      
       <div class="step1">
-        <a href="#" type="button" class="btn btn-cirle btn-primary">3</a>
+        <a href="{{ path('multi_service_gsm_front_model_reparation', {'marque':((tarifs[0].model).marque).slug,'modele':(tarifs[0].model).slug,'reparation':tarifs[0].reparation } ) }}" type="button" class="btn btn-cirle btn-primary">3</a>
         <p>panne</p>
       </div>
+      
       <div class=" step1">
-        <a href="#" type="button" class="btn btn-cirle btn-primary">4</a>
+        <a href="#" type="button" class="btn btn-cirle btn-default">4</a>
         <p>Réparations</p>
-      </div>	
+      </div>
+	</div>
+</div>	
 				{% set var=1%}
 			    {% for tarif in tarifs %}
 			    	{% if var==1 %}

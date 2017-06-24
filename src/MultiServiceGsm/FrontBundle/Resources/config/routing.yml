@@ -23,6 +23,7 @@ multi_service_gsm_front_marque:
         resource: "@MultiServiceGsmFrontBundle/Resources/config/routing/marque.yml"
         prefix:   /admin/marque
 
+
 multi_service_gsm_front_info:
         path: /info
         defaults: { _controller: MultiServiceGsmFrontBundle:Default:inf }
@@ -31,6 +32,7 @@ multi_service_gsm_front_localisation:
     path: /localisation
     defaults: { _controller: MultiServiceGsmFrontBundle:Default:localisation}
 
+
 multi_service_gsm_front_appl:
         path: /{slug}/modelapp
         defaults: { _controller: MultiServiceGsmFrontBundle:Appl:app }
@@ -38,6 +40,11 @@ multi_service_gsm_front_appl:
 multi_service_gsm_front_model_reparation:
         path: /{marque}/{modele}/modelrep
         defaults: { _controller: MultiServiceGsmFrontBundle:RepaModel:rep }
+
+multi_service_gsm_front_fiche_reparation:
+        path: /{marque}/{modele}/{reparation}
+        defaults: { _controller: MultiServiceGsmFrontBundle:FicheReparation:fiche}
+
 
 
 
@@ -70,11 +77,6 @@ multi_service_gsm_front_formDevis:
 multi_service_gsm_front_marques:
         path: /marques
         defaults: { _controller: MultiServiceGsmFrontBundle:Default:marq}
-
-multi_service_gsm_front_fiche_reparation:
-        path: /{marque}/{modele}/{reparation}
-        defaults: { _controller: MultiServiceGsmFrontBundle:FicheReparation:fiche}
-
 
 
 multi_service_gsm_front_adresse:

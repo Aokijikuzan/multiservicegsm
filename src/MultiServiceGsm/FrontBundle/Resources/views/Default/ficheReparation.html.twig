@@ -1,4 +1,24 @@
-{% if tarifs is defined %}
+<div class="barstep ">
+    <div class="col-md-offset-4">
+      <div class="step1">
+          <a href="{{ path('multi_service_gsm_front_marques') }}" type="button" class="btn btn-cirle btn-primary">1</a>
+            <p>Marque</p>
+      </div>
+		{% if tarifs is defined %}
+		<div class=" step1">
+        <a href="{{ path('multi_service_gsm_front_appl', {'slug':((tarifs.model).marque).slug } ) }}" type="button" class ="btn btn-cirle btn-primary">2</a>
+        <p>Modèle</p>
+      </div>
+      <div class="step1">
+        <a href="{{ path('multi_service_gsm_front_model_reparation', {'marque':((tarifs.model).marque).slug,'modele':(tarifs.model).slug,'reparation':tarifs.reparation } ) }}" type="button" class="btn btn-cirle btn-primary">3</a>
+        <p>panne</p>
+      </div>
+      <div class=" step1">
+        <a href="{{ path('multi_service_gsm_front_fiche_reparation',{'marque':((tarifs.model).marque).slug,'modele':(tarifs.model).slug,'reparation':tarifs.reparation })}}" type="button" class="btn btn-cirle btn-primary">4</a>
+        <p>Réparations</p>
+      </div>
+	</div>
+</div>
 
 	<div class="row">
 		<div class="col-md-12">
@@ -10,19 +30,8 @@
 			<div class="col-md-9">
 				<div class="row">
 					<i class="fa fa-tags" aria-hidden="true"><strong>{{tarifs.prix}}€</strong></i>
-				</div>
-				<div class="row">
-					commentaire
-					commentaire
-					commentaire
-					commentaire
-					commentaire
-					commentairecommentaire
-					commentaire
-					commentaire
-					commentairecommentaire
-					commentaire
-					commentairecommentaire
+				
+					<p>{{(tarifs.reparation).commentaire}}</p>
 				</div>
 			</div>
 		</div>	

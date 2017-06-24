@@ -4,19 +4,19 @@
           <a href="{{ path('multi_service_gsm_front_marques') }}" type="button" class="btn btn-cirle btn-primary">1</a>
            <p>Marque</p>
       </div>
-			{% if modeles is defined %}
-      <div class=" step1">
-        <a href="#" type="button" class ="btn btn-cirle btn-primary">2</a>
-        <p>Modèle</p>
-      </div>
-      <div class="step1">
-        <a href="#" type="button" class="btn btn-cirle btn-default">3</a>
-        <p>panne</p>
-      </div>
-      <div class=" step1">
-        <a href="#" type="button" class="btn btn-cirle btn-default">4</a>
-        <p>Réparations</p>
-      </div>
+	{% if modeles is defined %}
+		      <div class=" step1">
+		        <a href="{{ path('multi_service_gsm_front_appl', {'slug':(modeles[0].marque).slug } ) }}" type="button" class ="btn btn-cirle btn-primary">2</a>
+		        <p>Modèle</p>
+		      </div>
+		      <div class="step1">
+		        <a href="#" type="button" class="btn btn-cirle btn-default">3</a>
+		        <p>panne</p>
+		      </div>
+		      <div class=" step1">
+		        <a href="#" type="button" class="btn btn-cirle btn-default">4</a>
+		        <p>Réparations</p>
+		      </div>
       <!--
     -->
     </div>
@@ -26,7 +26,7 @@
 					{% if var==1 %}
 						<h1>{{modele.marque}}</h1>
 						{% set var=2%}
-					{% endif %}aas
+					{% endif %}
 					<div class="col-xs-12 col-sm-4 col-md-2 rep">
 	                  	<section class="rep1">
 	                  		<a href="{{ path('multi_service_gsm_front_model_reparation', {'marque':(modele.marque).slug, 'modele': modele.slug } ) }}">
