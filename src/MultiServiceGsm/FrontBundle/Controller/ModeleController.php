@@ -105,6 +105,13 @@ class ModeleController extends Controller
 
         return $this->redirectToRoute('modele_index');
     }
+     public function deleteModelAction(Modele $modele)
+    {
+     $em=$this->getDoctrine()->getManager();
+     $em->remove($modele);
+     $em->flush();
+      return $this->redirectToRoute('modele_index');
+    }
 
     /**
      * Creates a form to delete a modele entity.

@@ -7,3 +7,7 @@ multi_service_gsm_user_delete:
     defaults: { _controller: MultiServiceGsmUserBundle:Default:deleteUser }
     requirements:
       id: \d+
+multi_service_gsm_user_adresse:
+    path: /profil/adressepostale/add
+    defaults: { _controller: MultiServiceGsmUserBundle:Adresse:add }
+  

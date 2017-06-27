@@ -35,20 +35,18 @@ class Commande
      */
     private $etat;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="utilisateur", type="string", length=255)
-     */
-    private $utilisateur;
-
+    
     /**
      * @var array
      *
      * @ORM\Column(name="detail", type="array")
      */
     private $detail;
-
+    /**
+     *@ORM\ManyToOne(targetEntity="MultiServiceGsm\UserBundle\Entity\User")
+     *@ORM\JoinColumn(nullable=false)
+     */
+     private $utilisateur;
 
     /**
      * Get id
@@ -161,4 +159,3 @@ class Commande
         $this->date= new \DateTime();
     }
 }
-

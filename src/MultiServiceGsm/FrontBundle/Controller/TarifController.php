@@ -105,7 +105,13 @@ class TarifController extends Controller
 
         return $this->redirectToRoute('tarif_index');
     }
-
+     public function deleteTarAction(Tarif $tarif)
+    {
+     $em=$this->getDoctrine()->getManager();
+     $em->remove($tarif);
+     $em->flush();
+      return $this->redirectToRoute('tarif_index');
+    }
     /**
      * Creates a form to delete a tarif entity.
      *

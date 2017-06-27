@@ -106,6 +106,14 @@ class ReparationController extends Controller
         return $this->redirectToRoute('Reparation_index');
     }
 
+     public function deleteRepaAction(Reparation $reparation)
+    {
+     $em=$this->getDoctrine()->getManager();
+     $em->remove($reparation);
+     $em->flush();
+      return $this->redirectToRoute('Reparation_index');
+    }
+
     /**
      * Creates a form to delete a reparation entity.
      *

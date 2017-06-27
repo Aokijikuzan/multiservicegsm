@@ -6,6 +6,7 @@ use MultiServiceGsm\FrontBundle\Entity\Marque;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+
 /**
  * Marque controller.
  *
@@ -105,7 +106,13 @@ class MarqueController extends Controller
 
         return $this->redirectToRoute('marque_index');
     }
-
+    public function deleteMarqAction(Marque $marque)
+    {
+     $em=$this->getDoctrine()->getManager();
+     $em->remove($marque);
+     $em->flush();
+      return $this->redirectToRoute('marque_index');
+    }
     /**
      * Creates a form to delete a marque entity.
      *

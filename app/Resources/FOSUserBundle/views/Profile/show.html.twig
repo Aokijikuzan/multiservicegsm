@@ -14,34 +14,34 @@
 		<div class="col-sm-6">
 			{% block fos_user_content1 %}		
 					<div style="padding-bottom:20px;">
-						<button type="buttton" class="btn btn-secondary">
-							<a href="{{ path('fos_user_profile_edit') }}">Modifier votre profil d'inscription</a>
-						</button>
+						<form type="button" class="btn btn-default">
+							<a type="button" href="{{ path('fos_user_profile_edit') }}">Modifier votre profil d'inscription</a>
+						</form>
 					</div>
 					<br>
 					<div style="padding-bottom:20px;">
-						<button type="buttton" class="btn btn-secondary">
+						<form type="button" class="btn btn-default">
 							<a href=" {{path('fos_user_change_password')}}">changer votre mot de passe</a>
-						</button>
+						</form>
+					</div>
+					<br>
+					<div style="padding-bottom:20px;" >
+						<form type="button" class="btn btn-default">
+							<a href="{{path('multi_service_gsm_user_adresse')}}">ajouter une adresse postale</a>
+						</form>
 					</div>
 					<br>
 					<div style="padding-bottom:20px;">
-						<button type="buttton" class="btn btn-secondary">
-							<a href=" {{path('multi_service_gsm_front_adresse')}}">ajouter une adresse postale</a>
-						</button>
-					</div>
-					<br>
-					<div style="padding-bottom:20px;">
-						<button type="buttton" class="btn btn-secondary">
-				<!--			<a href="#">afficher votre historique de commande</a>
-					-->	</button>
+						<form type="button" class="btn btn-secondary">
+							<a href="#">modifier votre adresse postale</a>
+						</form>
 					</div>
 					<br>
 					<div style="padding-bottom:20px;">
 						<div class="alert alert-warning">
 							<strong>Attention!!! l'action de supprimer votre compte  est irréversible.</strong>
 						</div>
-						<form type="buttton" class="btn btn-warning"
+						<form type="button" class="btn btn-warning"
 							onClick="return confirm('etes vous sur(e)?')">
 							<a href="{{ path('multi_service_gsm_user_delete',{'id' : user.id } ) }}">supprimer votre compte</a>
 

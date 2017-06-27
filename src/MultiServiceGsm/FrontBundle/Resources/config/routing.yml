@@ -23,6 +23,20 @@ multi_service_gsm_front_marque:
         resource: "@MultiServiceGsmFrontBundle/Resources/config/routing/marque.yml"
         prefix:   /admin/marque
 
+multi_service_gsm_front_suppression_marque:
+        path: /{id}/suppressionIndiv
+        defaults: { _controller: MultiServiceGsmFrontBundle:Marque:deleteMarq }
+multi_service_gsm_front_suppression_modele:
+        path: /{id}/suppressionIndiv
+        defaults: { _controller: MultiServiceGsmFrontBundle:Modele:deleteModel }      
+multi_service_gsm_front_suppression_reparation:
+        path: /{id}/suppressionIndiv
+        defaults: { _controller: MultiServiceGsmFrontBundle:Reparation:deleteRepa }
+multi_service_gsm_front_suppression_tarif:
+        path: /{id}/suppressionIndiv
+        defaults: { _controller: MultiServiceGsmFrontBundle:Tarif:deleteTar }
+
+
 
 multi_service_gsm_front_info:
         path: /info
@@ -79,10 +93,7 @@ multi_service_gsm_front_marques:
         defaults: { _controller: MultiServiceGsmFrontBundle:Default:marq}
 
 
-multi_service_gsm_front_adresse:
-    path: /adressepostale
-    defaults: { _controller: MultiServiceGsmFrontBundle:Adresse:add }
-    methods:  [GET, POST]
+
 
 multi_service_gsm_front_panier:
     path: /panier

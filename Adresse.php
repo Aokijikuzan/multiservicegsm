@@ -70,6 +70,11 @@ class Adresse
      * @ORM\Column(name="telephone", type="string", length=255)
      */
     private $telephone;
+    /**
+     *@ORM\ManyToOne(targetEntity="MultiServiceGsm\UserBundle\Entity\Utilisateur")
+     *@ORM\JoinColumn(nullable=false)
+     */
+     private $utilisateur;
 
 
     /**
@@ -250,5 +255,28 @@ class Adresse
         
         return $this->telephone;
     }
-}
 
+    /**
+     * Set utilisateur
+     *
+     * @param \MultiServiceGsm\UserBundle\Entity\Utilisateur $utilisateur
+     *
+     * @return Adresse
+     */
+    public function setUtilisateur(\MultiServiceGsm\UserBundle\Entity\Utilisateur $utilisateur)
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    /**
+     * Get utilisateur
+     *
+     * @return \MultiServiceGsm\UserBundle\Entity\Utilisateur
+     */
+    public function getUtilisateur()
+    {
+        return $this->utilisateur;
+    }
+}

@@ -1,36 +1,58 @@
-<div id="paypal-button"></div>
 
-<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Oswald:700|Titillium+Web|Fira+Mono">
+    <link rel="stylesheet" type="text/css" href="https://vicopo.selfbuild.fr/index.css">
+<body>
+        
+        <div id="paypal-button"></div>
 
-<script>
-    paypal.Button.render({
+        <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
-        env: 'sandbox', // Or 'sandbox'
+        <script>
+            paypal.Button.render({
 
-        client: {
-            sandbox:    'Ae6yL56cULqaVEHBdapt-Uovwc8ZW2EHOp_WM97KqsPmu-t13oF7vUwdKutPALb1edgBpbd4o25N3njo',
-            production: 'xxxxxxxxx'
-        },
+                env: 'sandbox', // Or 'sandbox'
 
-        commit: true, // Show a 'Pay Now' button
+                client: {
+                    sandbox:    'Ae6yL56cULqaVEHBdapt-Uovwc8ZW2EHOp_WM97KqsPmu-t13oF7vUwdKutPALb1edgBpbd4o25N3njo',
+                    production: 'xxxxxxxxx'
+                },
 
-        payment: function(data, actions) {
-            return actions.payment.create({
-                transactions: [
-                    {
-                        amount: { total: '10.00', currency: 'EUR' }
-                    }
-                ]
-            });
-        },
+                commit: true, // Show a 'Pay Now' button
 
-        onAuthorize: function(data, actions) {
-            return actions.payment.execute().then(function(payment) {
-                    window.alert('paiement validé');
-                // The payment is complete!
-                // You can now show a confirmation message to the customer
-            });
-        }
+                payment: function(data, actions) {
+                    return actions.payment.create({
+                        transactions: [
+                            {
+                                amount: { total: '10.00', currency: 'EUR' }
+                            }
+                        ]
+                    });
+                },
 
-    }, '#paypal-button');
-</script>
+                onAuthorize: function(data, actions) {
+                    window.alert('start authorize');
+                    return actions.payment.execute().then(function() {
+                            window.alert('paiement validé');
+                        // The payment is complete!
+                        // You can now show a confirmation message to the customer
+                    });
+                },
+                onCancel: function(data, actions)
+                {
+                    alert('cancel action');
+                    return actions.redirect();
+                },
+                onError: function(err)
+                {
+                    alert(err);
+                }
+
+            }, '#paypal-button');
+        </script>
+</body>
+</html>

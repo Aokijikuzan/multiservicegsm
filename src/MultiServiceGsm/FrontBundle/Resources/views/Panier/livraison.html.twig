@@ -14,42 +14,10 @@
 	                    </div>
 	                     <div class="span4 offset2 col-md-4">
 	                        <h4>Ajouter une nouvelle adresse</h4>
-	                        <form>
-	                            <label>Nom</label>
-	                           	<br>
-	                            <input type="text">
-	                            <br>
-	                            <label>Prénom</label>
-	                            <br>
-	                            <input type="text">
-	                            <br>
-	                            <label>Adresse</label>
-	                            <br>
-	                            <input type="text">
-	                            <br>
-	                            <label>Ville</label>
-	                           	<div class="half">
-						            <input id="city" placeholder="Ville" autocomplete="off">
-						        </div>
-	                   			<br>
-	                            <label>Code postal</label>
-	                            <br>
-	                            <div class="half">
-						            <input id="code" placeholder="Code postal" autocomplete="off" autofocus>
-						        </div>
-	                   			 <div id="output"></div>
-	                            <br>
-	                        	<label>Complément à l'adresse</label>  
-	                        	<br>
-	                        	<input type="text">
-	                            <br>
-	                            <label>Téléphone</label>
-	                            <br>
-	                            <input type="text">                                        
-
-	                            <br />
-	                            <button class="btn btn-primary">Ajouter</button>
-	                        </form>
+	                        	{ form_start(form) }}   
+			                    	{{ form_widget(form) }} 
+			                    	<input type="submit" value="Ajouter">
+			                    {{ form_end(form) }}
 	                    </div>
 	                    <div class="col-md-4">
 	                    	<h2>Votre parnier</h2>

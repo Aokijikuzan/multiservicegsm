@@ -3,7 +3,11 @@
 {% block body %}
     {% include '::menuAction.html.twig' %} 
     <h1 style="text-align:center;">Liste des réparations</h1>
-
+     <ul >
+        <li style="text-align:center;">
+            <a href="{{ path('Reparation_new') }}">Ajouter une nouvelle réparation</a>
+        </li>
+    </ul>
     <table class="table table-striped table-bordered" style="border: 15px solid grey; border-spacing:10px;">
         <thead>
             <tr style="text-align:center;">
@@ -24,6 +28,10 @@
                         </li>
                         <li>
                             <a href="{{ path('Reparation_edit', { 'id': reparation.id }) }}">Modifier cette réparation</a>
+                        </li>
+                        <li 
+                            onClick="return confirm('etes vous sur(e) de vouloir supprimer ?')">
+                            <a href="{{ path('multi_service_gsm_front_suppression_marque', { 'id': reparation.id }) }}">Supprimer cette reparation</a>
                         </li>
                     </ul>
                 </td>
