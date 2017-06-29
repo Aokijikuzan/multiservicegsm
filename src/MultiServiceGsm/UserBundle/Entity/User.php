@@ -40,4 +40,17 @@ class User extends BaseUser
     {
         $this->role=array('ROLE_USER');
     }
+    public function setEmail($email)
+    {
+        $this->setUsername($email);
+
+        return parent::setEmail($email);
+    }
+      public function setEmailCanonical($emailCanonical)
+    {
+        $this->setUsernameCanonical($emailCanonical);
+
+        return parent::setEmailCanonical($emailCanonical);
+    }
+
 }

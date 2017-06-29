@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class RegistrationType extends AbstractType
 {
+    /*
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('nom')
@@ -15,7 +16,13 @@ class RegistrationType extends AbstractType
                 ->add('adressepostal')
         ;
     }
-
+*/
+    public function buildForm(FormBuilder $builder, array $options)
+{
+    parent::buildForm($builder, $options);
+    $builder->remove('username');  // we use email as the username
+    //..
+}
     public function getParent()
     {
         return 'FOS\UserBundle\Form\Type\RegistrationFormType';

@@ -7,7 +7,7 @@ security:
         in_memory:
             memory: ~
         main:
-          id: fos_user.user_provider.username
+          id: fos_user.user_provider.username_email
     encoders:
         MultiServiceGsm\UserBundle\Entity\User: sha512
     firewalls:
