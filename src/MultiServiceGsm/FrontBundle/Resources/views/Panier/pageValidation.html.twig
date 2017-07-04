@@ -1,0 +1,36 @@
+	<h1>Paiement </h1>
+   <table class="table table-striped table-hover">
+        <thead >
+            <tr>
+                <th>Références</th>
+                <th>Quantité</th>
+                <th>Prix unitaire</th>
+                <th>Total HT</th>
+            </tr>
+        </thead>
+        <tbody>
+        	{% if produits|length == 0 %}
+        		<tr>
+        			 <td colspan="4"><center>Aucun articles dans votre panier</center></td>
+        		</tr>
+        	{% endif %}
+
+        	{% for produit in produits %}
+            	<tr>
+               
+                        <td>{{ (produit.reparation).nomReparation ~ " " ~ (produit.model)}}</td>
+                        <td>{{panier[produit.id]}}</td>
+                        <td>{{ produit.prix }} €</td>
+                        <td>{{ produit.prix * panier[produit.id] }} €</td>
+               
+                </tr>
+             {% set totalTTC = totalTTC + (produit.prix * panier[produit.id]) %}
+            
+            {% endfor %}
+        </tbody>
+    </table>
+            	  <dt>Total TTC :</dt><dd>{{totalTTC}} €</dd><br>
+
+    <a href="{{ lien }}" class="btn btn-default" role="button">Paiement</a>
+
+

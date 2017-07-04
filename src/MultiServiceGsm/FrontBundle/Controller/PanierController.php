@@ -6,6 +6,10 @@ namespace MultiServiceGsm\FrontBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Response;
+use MultiServiceGsm\UserBundle\Entity\Adresse;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
+
 
 class PanierController extends Controller
 {
@@ -28,30 +32,67 @@ class PanierController extends Controller
 	
 
 
-    public function recapitulatifAction()
+    public function recapitulatifAction(Request $request)
 	{
-        
+        $adresse= new Adresse();
         $session = $this->get('session');
-        if (!$session->has('panier'))
-        {
-           
-                $session->set('panier', array());
-        }
+    //    $panier=$this->get('');
+        $form= $this->createForm('MultiServiceGsm\UserBundle\Form\AdresseType',$adresse); 
+        $form->handleRequest($request);
+
         $em = $this->getDoctrine()->getManager();
+        $authChecker= $this->container->get('security.authorization_checker');
         $produits = $em->getRepository('MultiServiceGsmFrontBundle:Tarif')->findById(array_keys($session->get('panier')));
+
+        $ttc = 0;
+        $articles = array();
+
+        foreach ($produits as $article) {
+            # code...
+            $ttc=$ttc + ($article->getPrix() * ($session->get('panier')[$article->getId()]));
+
+            $articles[] = array ('name' => $article->__ToString(), 
+                'description'=> $article->__ToString(),
+                'quantity' => $session->get('panier')[$article->getId()],
+                'price'=> number_format($article->getPrix(), 2, '.',''),
+                'currency' => 'EUR');
+        }
+        $articles = json_encode($articles);
+        $session->set('commande',$articles);
+
+       
+        if( $form->isSubmitted() && $form->isValid()  )
+        {
+        
+            if ($authChecker->isGranted('IS_AUHENTIFICATED_REMEMBERED'))
+             {
+              
+                $user=$this->getUser();
+                $adrese->setUtilisateur($user);
+                $em->persist($adresse);
+                $em->flush(); 
+                $session->set('adresse',$adresse);
+                
+                $paye=$this->get('multi_service_gsm_front.paypal');
+                $lien=$paye->getPaymentToken($ttc,$articles)['links'][1]->href;
+            //    return $this->redirect($this->generateUrl('multi_service_gsm_front_validation')); 
+
+                return $this->render('MultiServiceGsmFrontBundle:Panier:validation.html.twig',array('produits' => $produits,'panier' => $session->get('panier'),'lien'=> $lien));
+            }
+            $paye=$this->get('multi_service_gsm_front.paypal');
+            $lien=$paye->getPaymentToken($ttc,$articles)['links'][1]->href;
+            $session->set('adresse',$adresse);
+           //  return $this->redirect($this->generateUrl('multi_service_gsm_front_validation')); 
+            
+            return $this->render('MultiServiceGsmFrontBundle:Panier:validation.html.twig',array('produits' => $produits,'panier' => $session->get('panier'),'lien'=> $lien));
      
-		return $this->render('MultiServiceGsmFrontBundle:Panier:livraison.html.twig', array('produits' => $produits,'panier' => $session->get('panier'))
-        );
+        }
+		return $this->render('MultiServiceGsmFrontBundle:Panier:livraison.html.twig', array('produits' => $produits,'panier' => $session->get('panier'),
+            'form'=>$form->createView(),'adresse' => $session->get('adresse')
+            ));
+
 	}
 	
-
-
-    public function validationAction()
-    {
-        return $this->render('MultiServiceGsmFrontBundle:Panier:validation.html.twig');
-    }
-    
-
 
     public function ajoutAction($id)
     {
@@ -137,4 +178,8 @@ class PanierController extends Controller
         $produits = $em->getRepository('MultiServiceGsmFrontBundle:Tarif')->findById(array_keys($session->get('panier')));
         return $produits;
     }
+
+
+
+   
 }

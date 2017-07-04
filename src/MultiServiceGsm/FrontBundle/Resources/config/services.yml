@@ -2,3 +2,6 @@ services:
 #    multi_service_gsm_front.example:
 #        class: MultiServiceGsm\FrontBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
+    multi_service_gsm_front.paypal:
+        class:  MultiServiceGsm\FrontBundle\Services\Paypal
+        arguments: ["@router"]

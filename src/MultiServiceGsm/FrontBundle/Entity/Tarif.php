@@ -126,6 +126,8 @@ class Tarif
         return $this->reparation;
     }
 
-
+    public function __ToString(){
+        return ($this->model).' - '.($this->reparation);
+    }
     
 }

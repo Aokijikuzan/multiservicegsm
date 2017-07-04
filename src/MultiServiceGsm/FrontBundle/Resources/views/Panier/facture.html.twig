@@ -1,0 +1,39 @@
+
+<page style="font-size: 10pt">
+    <h1>Multi Service GSM</h1>
+    <span>Adresse: 11 Place du Général de Gaulle</span><br>
+    <span>45000 Orléans</span> <br>
+    <span>France</span><br>
+    <span>Telephone:  02 38 80 26 43</span><br>
+    <br>
+    <br>
+    <h1>Destinataire</h1>
+    <span>{{ adresse.nom }}</span><br>
+    <span>{{ adresse.prenom }}</span><br>
+    <span>{{ adresse.rue }}</span><br>
+    <span>{{ adresse.complement }}</span><br>
+    <span>{{ adresse.ville }}</span><br>
+    <span>{{ adresse.codepostal }}</span><br>
+    <span>{{ adresse.telephone }}</span><br>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Références</th>
+                <th>Date</th>
+                <th>Prix TTC</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for session in  %}
+ {#}           <tr>
+                <td></td>
+                <td>{{ date|date('d/m/Y') }}</td>
+                <td>{{ detail }} €</td>
+                
+            </tr>
+{#}            {% endfor %}
+ {#}       </tbody>
+    </table>
+
+</page>

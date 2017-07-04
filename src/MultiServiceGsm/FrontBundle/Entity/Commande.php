@@ -44,7 +44,7 @@ class Commande
     private $detail;
     /**
      *@ORM\ManyToOne(targetEntity="MultiServiceGsm\UserBundle\Entity\User")
-     *@ORM\JoinColumn(nullable=false)
+     *@ORM\JoinColumn(nullable=true)
      */
      private $utilisateur;
 

@@ -4,11 +4,11 @@
 
     <head>
          <meta charset="utf-8">
-        <meta charset="ISO-8859-1" />
+       
         <meta name="keywords" content="multi services gsm, reparation, telephone, Orléans" />
-
-        <title>{% block title %}Multi Service Gsm {% endblock  title %}</title>
-
+{#}
+        {% block title %}Multi Service Gsm {% endblock  title %}
+{#}
        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/x-icon" href="favicon.ico" />
         {% stylesheets '@bootstrap_css''@font_awesome_css' %}
@@ -31,11 +31,6 @@
     <body>
         
         {% block body %}{% endblock body%}
-
-            
-     
-        
-
         {% javascripts '@jquery' '@bootstrap_js' %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
         {% endjavascripts %}

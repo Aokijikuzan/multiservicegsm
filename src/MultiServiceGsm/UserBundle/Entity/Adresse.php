@@ -45,7 +45,7 @@ class Adresse
     /**
      * @var string
      *
-     * @ORM\Column(name="complement", type="string", length=255)
+     * @ORM\Column(name="complement", type="string", length=255,nullable=true)
      */
     private $complement;
 
@@ -276,5 +276,16 @@ class Adresse
     public function getUtilisateur()
     {
         return $this->utilisateur;
+    }
+
+     public function __ToString()
+    {
+        return $this->nom.
+         $this->prenom.
+         $this->rue.
+         $this->complement.
+         $this->ville.
+         $this->codepostal;
+
     }
 }

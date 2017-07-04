@@ -114,3 +114,22 @@ multi_service_gsm_front_ajouter:
 multi_service_gsm_front_suppression:
     path: /supprimer/{id}
     defaults: { _controller: MultiServiceGsmFrontBundle:Panier:supprim}
+
+multi_service_gsm_front_facture:
+    path: /commande/facture
+    defaults: { _controller:  MultiServiceGsmFrontBundle:Commande:facturePdf }
+
+multi_service_gsm_front_paiement:
+    path: /commande/paiement
+    defaults: { _controller: MultiServiceGsmFrontBundle:Commande:paypal }
+
+multi_service_gsm_front_paiement_confirme:
+    path: /commande/confirme/
+    defaults: {_controller: MultiServiceGsmFrontBundle:Commande:paiementConfirme }
+
+multi_service_gsm_front_paiement_echoue:
+    path: /commande/echoue/
+    defaults: {_controller: MultiServiceGsmFrontBundle:Commande:paiementEchoue }
+
+    
+

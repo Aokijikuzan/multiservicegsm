@@ -14,10 +14,12 @@
 	                    </div>
 	                     <div class="span4 offset2 col-md-4">
 	                        <h4>Ajouter une nouvelle adresse</h4>
-	                        	{ form_start(form) }}   
-			                    	{{ form_widget(form) }} 
-			                    	<input type="submit" value="Ajouter">
-			                    {{ form_end(form) }}
+	                        	
+			                    	{{ form_start(form, { 'method': 'POST'}) }}
+
+			    						{{ form_widget(form) }}
+			    						<input type="submit" name="Continuer" />
+			    					{{ form_end(form) }}
 	                    </div>
 	                    <div class="col-md-4">
 	                    	<h2>Votre parnier</h2>
@@ -31,7 +33,7 @@
 			                        </tr>
 			                    </thead>
 			                    <tbody>
-			                    	{%if produits|length == 0%}
+			                    	{% if produits|length == 0 %}
 			                    		<tr>
 			                    			 <td colspan="4"><center>Aucun articles dans votre panier</center></td>
 			                    		</tr>
@@ -39,19 +41,20 @@
 
 			                    	{% for produit in produits %}
 			                        	<tr>
-					                        <form action="{{ path('multi_service_gsm_front_ajouter', { 'id' : produit.id }) }}" method="get">
+					                   		<form>
 					                            <td>{{ (produit.reparation).nomReparation ~ " " ~ (produit.model)}}</td>
 					                            <td>{{panier[produit.id]}}</td>
 					                            <td>{{ produit.prix }} €</td>
 					                            <td>{{ produit.prix * panier[produit.id] }} €</td>
-					                        </form>
+					                   		</form>
 					                    </tr>
 					                 {% set totalTTC = totalTTC + (produit.prix * panier[produit.id]) %}
-			                        
+			          	
 			                        {% endfor %}
-			                        
+	                   
 			                    </tbody>
 			                </table>
+			                        <dt>Total TTC :</dt><dd>{{totalTTC}} €</dd>
 	                    </div>
 	                </div>
 	            </div>
