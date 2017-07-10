@@ -10,4 +10,9 @@ multi_service_gsm_user_delete:
 multi_service_gsm_user_adresse:
     path: /profil/adressepostale/add
     defaults: { _controller: MultiServiceGsmUserBundle:Adresse:add }
-  
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

@@ -56,7 +56,7 @@ multi_service_gsm_front_model_reparation:
         defaults: { _controller: MultiServiceGsmFrontBundle:RepaModel:rep }
 
 multi_service_gsm_front_fiche_reparation:
-        path: /{marque}/{modele}/{reparation}
+        path: front/{marque}/{modele}/{reparation}
         defaults: { _controller: MultiServiceGsmFrontBundle:FicheReparation:fiche}
 
 
@@ -133,3 +133,6 @@ multi_service_gsm_front_paiement_echoue:
 
     
 
+multi_service_gsm_user_adresse:
+    path: /livraison/adresse
+    defaults: { _controller: MultiServiceGsmFrontBundle:Panier:livraison }

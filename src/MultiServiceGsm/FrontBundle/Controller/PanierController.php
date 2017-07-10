@@ -59,6 +59,7 @@ class PanierController extends Controller
         }
         $articles = json_encode($articles);
         $session->set('commande',$articles);
+              $session->set('ttc',$ttc);
 
        
         if( $form->isSubmitted() && $form->isValid()  )
@@ -122,6 +123,7 @@ class PanierController extends Controller
        //var_dump($quantite);die();
         return $this->redirect($this->generateUrl('multi_service_gsm_front_panier')); 
     }
+
     public function supprimAction($id)
     {
          $session=$this->get('session');
@@ -179,7 +181,52 @@ class PanierController extends Controller
         return $produits;
     }
 
+    public function livraisonAction()
+    {
+         $em = $this->getDoctrine()->getManager();
+         $utilisateur = $this->get('security.token_storage')->getToken()->getUser();
+
+         $adresses=$em->getRepository('MultiServiceGsmUserBundle:Adresse')->findByUtilisateur($utilisateur->getId());
+         //var_dump($utilisateur->getId());die();
+       // var_dump($adresse );die();
+        // return $this->renderView('MultiServiceGsmFrontBundle:Panier:adresseLivraison.html.twig',array('adresse'=>$adresse , 'nom'=> $adresse->getNom() ,   'prenom' => $adresse->getPrenom(), 'rue' => $adresse -> getRue(),'complement' => $adresse -> getComplement() , 'ville' => $adresse -> getVille() , 'codePostal' => $adresse -> getCodePostal() ));
+         return $this->render('MultiServiceGsmFrontBundle:Panier:livraison.html.twig', array('adresses' => $adresses ));
+    }
+  /*
+    public function livraisonOnSession()
+    {
+        $session=$this->getRequest()->getSession();
+        var_dump($session->get)
+        if(!$session->has('adresse'))
+        {
+            $session->set('adresse',array());
+            $adresse=$session->get('adresse');
+        }
+    }
+*/
 
 
+    public function adressUserAction()
+    {
+         $em = $this->getDoctrine()->getManager();
+        $utilisateur = $this->container->get('security.context')->getToken()->getUser();
+        $entity = new Adresse();
+        $form = $this->createForm(new AdresseType($em), $entity);
+        if ($this->get('request')->getMethod() == 'POST')
+        {
+            $form->handleRequest($this->getRequest());
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $entity->setUtilisateur($utilisateur);
+                $em->persist($entity);
+                $em->flush();
+                
+                return $this->render('MultiServiceGsmFrontBundle:Panier:livraison.html.twig');
+            }
+        }
+        
+        return $this->render('FrontBundle:Panier:livraison.html.twig', array('utilisateur' => $utilisateur,
+                                                                             'form' => $form->createView()));
+    }
    
 }

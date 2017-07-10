@@ -25,7 +25,7 @@ class AdresseController extends Controller
       
       $em->flush();
 
-      $request->getSession()->getFlashBag()->add('notice','Adresse bien enregistrée.');
+      $request->getSession()->getFlashBag()->add('success','Adresse bien enregistrée.');
 
       return $this->redirectToRoute('fos_user_profile_show');
     }

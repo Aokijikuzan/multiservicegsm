@@ -53,4 +53,5 @@ class User extends BaseUser
         return parent::setEmailCanonical($emailCanonical);
     }
 
+    
 }

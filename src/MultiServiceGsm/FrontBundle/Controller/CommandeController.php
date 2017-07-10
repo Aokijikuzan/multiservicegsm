@@ -16,14 +16,18 @@ class CommandeController extends Controller
     {
       $session=$this->get('session');
       $adresse=$session->get('adresse');
-    	
+    	$articles=$session->get('commande');
+      $ttc=$session->get('ttc');
+     // var_dump($ttc);die();
+     $articles=json_decode($articles,true);
+    
       $commande=new Commande();
       $commande->setDate(new \DateTime());
     	$commande->setUtilisateur($this->getUser());
-    	$commande->setDetail("éa  flg,  azzz");
+    	$commande->setDetail("");
     	$commande->setEtat(1);
     //	var_dump($commande->getDetail());die();
-      $html = $this->renderView('MultiServiceGsmFrontBundle:Panier:facture.html.twig', array('date' => $commande->getDate(),'utilisateur'=> $commande->getUtilisateur(), 'detail' =>  $commande->getDetail() ,  'etat' => 	$commande->getEtat(), 'adresse'=>$adresse ));
+      $html = $this->renderView('MultiServiceGsmFrontBundle:Panier:facture.html.twig', array('date' => $commande->getDate(),'utilisateur'=> $commande->getUtilisateur(), 'detail' =>  $commande->getDetail() ,  'etat' => 	$commande->getEtat(), 'adresse'=>$adresse,'articles'=>$articles,'ttc'=>$ttc ));
          
     $html2pdf = new \Spipu\Html2Pdf\Html2Pdf('P', 'A4', 'fr', true, 'UTF-8', array(15, 5, 15, 5));
     $html2pdf->pdf->SetDisplayMode('fullpage');
@@ -66,8 +70,9 @@ class CommandeController extends Controller
       $em->flush(); 
       $session->remove('panier');
        $session->remove('quantite');
+       $session->clear();
      $session->getFlashBag()->add('success', 'Paiement bien enregistrée');
-      return $this->redirect($this->generateUrl('multi_service_gsm_front_homepage')); 
+      return $this->redirect($this->generateUrl('multi_service_gsm_front_facture')); 
    }
 
    public function paiementEchoueAction()
