@@ -130,7 +130,7 @@ class PanierController extends Controller
         $panier = $session->get('panier');
         $quantite=$session->get('quantite');
          if (array_key_exists($id, $panier))
-        {
+        {$
               $quantite=$quantite-1;
               $panier[$id]=$panier[$id]-1;
 
@@ -181,52 +181,32 @@ class PanierController extends Controller
         return $produits;
     }
 
+    public function livraison1ction()
+    {
+         $em = $this->getDoctrine()->getManager();
+         $utilisateur = $this->getUser();
+
+         $adresses=$em->getRepository('MultiServiceGsmUserBundle:Adresse')->findByUtilisateur($utilisateur);
+         $session->set('adresses',$adresses);
+         //var_dump($utilisateur);die();
+         var_dump($adresses);die();
+         return $this->render('MultiServiceGsmFrontBundle:Panier:livraison.html.twig', array('adresses' => $adresses,'adress' => $session->get('adresses') ));
+    }
+
     public function livraisonAction()
     {
-         $em = $this->getDoctrine()->getManager();
-         $utilisateur = $this->get('security.token_storage')->getToken()->getUser();
-
-         $adresses=$em->getRepository('MultiServiceGsmUserBundle:Adresse')->findByUtilisateur($utilisateur->getId());
-         //var_dump($utilisateur->getId());die();
-       // var_dump($adresse );die();
-        // return $this->renderView('MultiServiceGsmFrontBundle:Panier:adresseLivraison.html.twig',array('adresse'=>$adresse , 'nom'=> $adresse->getNom() ,   'prenom' => $adresse->getPrenom(), 'rue' => $adresse -> getRue(),'complement' => $adresse -> getComplement() , 'ville' => $adresse -> getVille() , 'codePostal' => $adresse -> getCodePostal() ));
-         return $this->render('MultiServiceGsmFrontBundle:Panier:livraison.html.twig', array('adresses' => $adresses ));
-    }
-  /*
-    public function livraisonOnSession()
-    {
-        $session=$this->getRequest()->getSession();
-        var_dump($session->get)
-        if(!$session->has('adresse'))
-        {
-            $session->set('adresse',array());
-            $adresse=$session->get('adresse');
-        }
-    }
-*/
-
-
-    public function adressUserAction()
-    {
-         $em = $this->getDoctrine()->getManager();
-        $utilisateur = $this->container->get('security.context')->getToken()->getUser();
-        $entity = new Adresse();
-        $form = $this->createForm(new AdresseType($em), $entity);
-        if ($this->get('request')->getMethod() == 'POST')
-        {
-            $form->handleRequest($this->getRequest());
-            if ($form->isValid()) {
-                $em = $this->getDoctrine()->getManager();
-                $entity->setUtilisateur($utilisateur);
-                $em->persist($entity);
-                $em->flush();
-                
-                return $this->render('MultiServiceGsmFrontBundle:Panier:livraison.html.twig');
-            }
-        }
+        $em = $this->getDoctrine()->getManager();
+         $utilisateur = $this->getUser();
         
-        return $this->render('FrontBundle:Panier:livraison.html.twig', array('utilisateur' => $utilisateur,
-                                                                             'form' => $form->createView()));
+         $adresses=$em->getRepository('MultiServiceGsmUserBundle:Adresse')->findByUtilisateur($utilisateur);
+     //    $form=$this->createForm(new AdresseType($em),$adresses);
+
+       //  var_dump($utilisateur);die();
+         
+                $em->flush();
+
+         return $this->render('MultiServiceGsmFrontBundle:Panier:adresseLivraison.html.twig',array('adresses' => $adresses));
     }
+   
    
 }

@@ -134,5 +134,9 @@ multi_service_gsm_front_paiement_echoue:
     
 
 multi_service_gsm_user_adresse:
-    path: /livraison/adresse
+    path: /profil/adresse
+    defaults: { _controller: MultiServiceGsmUserBundle:Adresse:add }
+
+multi_service_gsm_adresse_livraison:
+    path: /commande/adresse
     defaults: { _controller: MultiServiceGsmFrontBundle:Panier:livraison }
