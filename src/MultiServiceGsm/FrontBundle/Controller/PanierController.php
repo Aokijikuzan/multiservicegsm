@@ -193,6 +193,14 @@ class PanierController extends Controller
          return $this->render('MultiServiceGsmFrontBundle:Panier:livraison.html.twig', array('adresses' => $adresses,'adress' => $session->get('adresses') ));
     }
 
+
+
+
+
+
+
+
+
     public function livraisonAction()
     {
         $em = $this->getDoctrine()->getManager();
@@ -203,8 +211,8 @@ class PanierController extends Controller
 
        //  var_dump($utilisateur);die();
          
-                $em->flush();
-
+         //       $em->flush();
+         //var_dump($adresses);die();
          return $this->render('MultiServiceGsmFrontBundle:Panier:adresseLivraison.html.twig',array('adresses' => $adresses));
     }
    
