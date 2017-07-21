@@ -8,15 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class RegistrationType extends AbstractType
 {
-    /*
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
-        $builder->add('nom')
-                ->add('prenom')
-                ->add('adressepostal')
-        ;
-    }
-*/
+    
     public function buildForm(FormBuilder $builder, array $options)
 {
     parent::buildForm($builder, $options);

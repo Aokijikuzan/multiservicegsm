@@ -285,7 +285,8 @@ class Adresse
          $this->rue.
          $this->complement.
          $this->ville.
-         $this->codepostal;
+         $this->codepostal.
+         $this->telephone;
 
     }
 }

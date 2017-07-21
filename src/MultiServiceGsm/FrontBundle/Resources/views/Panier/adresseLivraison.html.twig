@@ -1,29 +1,31 @@
-<div id="collapseOne" class="accordion-body collapse in">
+
+<div  class="accordion-body collapse in">
     <div class="accordion-inner">
         <div class="span4">
-        {#}        <form action="#" method="POST">
-         {#}
-            {% if adresses is defined %}
                 	<h4>Adresse de livraison et de facturation</h4>
+                	{{dump(app.session.get('adresses'))}}
         		{% for adresse in adresses %}
          	 {#} 		
+                	{% if session.adresses is defined %}
+            {% if adresses is defined %}
          	 {{dump(adresses)}}
-             {#}             <label class="radio">
+
+    		{% endif %}
+            $tmp[] = {{ app.session.get('adresses')}}
                             <input type="radio" name="livraison" >
+            {#} 
+                            {{ app.session.get('adresses')[0].nom }} {{ app.session.get('adresses')[0].prenom }} <br/>
+                         <label class="radio">
                             <br/>
-                            {{adresse.telephone}} <br/>
-                            {{ adresse.nom }} {{ adresse.prenom }} <br/>
-                            {{ adresse.rue }}  <br/>
-                            {{ adresse.complement }} 
+            		abb
+                            {{app.session.get('adresses')[0].telephone}} <br/>
+                            {{ app.session.get('adresses')[0].rue }}  <br/>
+                            {{ app.session.get('adresses')[0].complement }} 
                             <a href="#"><i class="icon-trash"></i></a>
-                        <br/>{{ adresse.ville }}-{{ adresse.codepostal}}
+                        <br/>{{ app.session.get('adresses')[0].ville }}-{{ app.session.get('adresses')[0].codepostal}}
                             <br/>
                        </label>
   	             {% endfor %}
-           {#}   </form>
-                {#}{% endif %}
-            		abb
-            
         
          </div>
      </div>

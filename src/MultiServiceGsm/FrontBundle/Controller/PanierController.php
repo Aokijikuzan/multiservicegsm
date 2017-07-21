@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use MultiServiceGsm\UserBundle\Entity\Adresse;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
-
+use MultiServiceGsm\UserBundle\Form\AdresseType;
 
 class PanierController extends Controller
 {
@@ -163,7 +163,7 @@ class PanierController extends Controller
             $quantite=$quantite-1;
             $session->set('panier',$panier);
             $session->set('quantite',$quantite);
-            var_dump($quantite);die();
+         //   var_dump($quantite);die();
             $this->get('session')->getFlashBag()->add('success','Article supprimé avec succès');
         }
         return $this->redirect($this->generateUrl('multi_service_gsm_front_panier')); 
@@ -204,16 +204,23 @@ class PanierController extends Controller
     public function livraisonAction()
     {
         $em = $this->getDoctrine()->getManager();
-         $utilisateur = $this->getUser();
-        
-         $adresses=$em->getRepository('MultiServiceGsmUserBundle:Adresse')->findByUtilisateur($utilisateur);
-     //    $form=$this->createForm(new AdresseType($em),$adresses);
+        $utilisateur = $this->getUser();
+        $entity=new Adresse();
+         $session = $this->get('session');
+        $session->set('adresses',array());
+        $adresses=$em->getRepository('MultiServiceGsmUserBundle:Adresse')->findByUtilisateur($utilisateur);
+       // $adresses=json_encode($adresses);
+        $session->set('adresses',$adresses );
+        // $adresses=json_decode($adresses,true);
+       // $form=$this->createForm(new AdresseType($em),$entity);
 
        //  var_dump($utilisateur);die();
          
          //       $em->flush();
-         //var_dump($adresses);die();
-         return $this->render('MultiServiceGsmFrontBundle:Panier:adresseLivraison.html.twig',array('adresses' => $adresses));
+        //var_dump($session->get('adresses'));die();
+         //var_dump($adresses[0]->getTelephone());die();
+         return $this->render('MultiServiceGsmFrontBundle:Panier:adresseLivraison.html.twig',array('nom' => $adresses[0]->getNom(),'prenom'=>$adresses[0]->getPrenom(),'rue'=>$adresses[0]->getRue(),'complement'=>$adresses[0]->getComplement(),'ville'=>$adresses[0]->getVille(),'codepostal'=>$adresses[0] ->getCodepostal(),
+            'telephone'=>$adresses[0]->getTelephone(),'adresses' => $session->get('adresses') ));
     }
    
    
