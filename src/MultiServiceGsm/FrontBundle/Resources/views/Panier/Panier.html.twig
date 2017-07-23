@@ -34,7 +34,11 @@
 	                        	<tr>
 			                        <form action="{{ path('multi_service_gsm_front_ajouter', { 'id' : produit.id }) }}" method="get">
 			                            <td>{{ (produit.reparation).nomReparation ~ " " ~ (produit.model)}}</td>
-			                            <td>{{panier[produit.id]}}</td>
+			                            <td>
+			                            	<a href="{{path('multi_service_gsm_front_ajouter', { 'id' : produit.id } )}}" class="btn btn-secondary">+</a>
+			                            	{{panier[produit.id]}}
+			                            	<a href="{{path( 'multi_service_gsm_front_suppression', { 'id' : produit.id })}}" class="btn btn-secondary">-</a>
+			                            </td>
 			                            <td onClick="return confirm('etes vous sur(e)?')">
 			                                <a href="{{ path('multi_service_gsm_front_suppression', { 'id' : produit.id }) }}"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 			                            </td>

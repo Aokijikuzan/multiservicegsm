@@ -130,12 +130,14 @@ class PanierController extends Controller
         $panier = $session->get('panier');
         $quantite=$session->get('quantite');
          if (array_key_exists($id, $panier))
-        {$
-              $quantite=$quantite-1;
-              $panier[$id]=$panier[$id]-1;
+        {
+            $quantite=$quantite-1;
+            $panier[$id]=$panier[$id]-1;
+            $session->set('panier',$panier);
+            $session->set('quantite',$quantite);
+        //  var_dump($quantite);die();
 
         }
-         
           if ($quantite == 0)
            { if (array_key_exists($id, $panier))
               {
@@ -144,9 +146,17 @@ class PanierController extends Controller
               $session->set('quantite',$quantite);
              }
             }
+         /*
+            if ($quantite == 0)
+           { 
+             unset($panier[$id]);
+              $session->set('panier',$panier);
+              $session->set('quantite',$quantite);
+            
+            }
+            */
           $session->set('panier',$panier);
           $session->set('quantite',$quantite);
-
            return $this->redirect($this->generateUrl('multi_service_gsm_front_panier')); 
     }
     
@@ -209,7 +219,7 @@ class PanierController extends Controller
          $session = $this->get('session');
         $session->set('adresses',array());
         $adresses=$em->getRepository('MultiServiceGsmUserBundle:Adresse')->findByUtilisateur($utilisateur);
-       // $adresses=json_encode($adresses);
+       
         $session->set('adresses',$adresses );
         // $adresses=json_decode($adresses,true);
        // $form=$this->createForm(new AdresseType($em),$entity);

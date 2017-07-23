@@ -1,23 +1,21 @@
-
+{% set tmp = app.session.get('adresses')  %}   
 <div  class="accordion-body collapse in">
     <div class="accordion-inner">
         <div class="span4">
                 	<h4>Adresse de livraison et de facturation</h4>
-                	{{dump(app.session.get('adresses'))}}
-        		{% for adresse in adresses %}
-         	 {#} 		
-                	{% if session.adresses is defined %}
+                	{% if app.session.get('adresses') is defined %}
+                {% for adresse in tmp %}
+             {#}        
+                    {{dump(app.session.get('adresses'))}}
             {% if adresses is defined %}
          	 {{dump(adresses)}}
 
-    		{% endif %}
-            $tmp[] = {{ app.session.get('adresses')}}
-                            <input type="radio" name="livraison" >
             {#} 
+
+                            <input type="radio" name="livraison" >
                             {{ app.session.get('adresses')[0].nom }} {{ app.session.get('adresses')[0].prenom }} <br/>
                          <label class="radio">
                             <br/>
-            		abb
                             {{app.session.get('adresses')[0].telephone}} <br/>
                             {{ app.session.get('adresses')[0].rue }}  <br/>
                             {{ app.session.get('adresses')[0].complement }} 
@@ -25,7 +23,9 @@
                         <br/>{{ app.session.get('adresses')[0].ville }}-{{ app.session.get('adresses')[0].codepostal}}
                             <br/>
                        </label>
-  	             {% endfor %}
+                    abb
+                 {% endfor %}
+    		{% endif %}
         
          </div>
      </div>
