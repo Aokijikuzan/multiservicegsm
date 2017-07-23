@@ -221,14 +221,7 @@ class PanierController extends Controller
         $adresses=$em->getRepository('MultiServiceGsmUserBundle:Adresse')->findByUtilisateur($utilisateur);
        
         $session->set('adresses',$adresses );
-        // $adresses=json_decode($adresses,true);
-       // $form=$this->createForm(new AdresseType($em),$entity);
-
-       //  var_dump($utilisateur);die();
-         
-         //       $em->flush();
-        //var_dump($session->get('adresses'));die();
-         //var_dump($adresses[0]->getTelephone());die();
+        
          return $this->render('MultiServiceGsmFrontBundle:Panier:adresseLivraison.html.twig',array('nom' => $adresses[0]->getNom(),'prenom'=>$adresses[0]->getPrenom(),'rue'=>$adresses[0]->getRue(),'complement'=>$adresses[0]->getComplement(),'ville'=>$adresses[0]->getVille(),'codepostal'=>$adresses[0] ->getCodepostal(),
             'telephone'=>$adresses[0]->getTelephone(),'adresses' => $session->get('adresses') ));
     }
