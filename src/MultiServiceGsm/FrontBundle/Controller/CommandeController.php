@@ -26,6 +26,7 @@ class CommandeController extends Controller
     	$commande->setUtilisateur($this->getUser());
     	$commande->setDetail("");
     	$commande->setEtat(1);
+      var_dump($session->get('adresse'));die();
     //	var_dump($commande->getDetail());die();
       $html = $this->renderView('MultiServiceGsmFrontBundle:Panier:facture.html.twig', array('date' => $commande->getDate(),'utilisateur'=> $commande->getUtilisateur(), 'detail' =>  $commande->getDetail() ,  'etat' => 	$commande->getEtat(), 'adresse'=>$adresse,'articles'=>$articles,'ttc'=>$ttc ));
          
@@ -68,9 +69,10 @@ class CommandeController extends Controller
       $em = $this->getDoctrine()->getManager();
       $em->persist($commande);
       $em->flush(); 
+      //var_dump($commande);die();
       $session->remove('panier');
        $session->remove('quantite');
-       $session->clear();
+      // $session->clear();
      $session->getFlashBag()->add('success', 'Paiement bien enregistrée');
       return $this->redirect($this->generateUrl('multi_service_gsm_front_facture')); 
    }

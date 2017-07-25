@@ -11,6 +11,7 @@
 	                    <div class="span4 col-md-4">
 	                  			
 	                    		{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+	                    		
 	                   			{% include 'MultiServiceGsmFrontBundle:Panier:adresseLivraison.html.twig' %} 
 	           {#}  
 	              				{{dump()}}
@@ -23,7 +24,7 @@
 	                    </div>
 	                     <div class="span4 offset2 col-md-4">
 	                        <h4>Ajouter une nouvelle adresse</h4>
-	                        	
+	                        
 			                    	{{ form_start(form, { 'method': 'POST'}) }}
 
 			    						{{ form_widget(form) }}

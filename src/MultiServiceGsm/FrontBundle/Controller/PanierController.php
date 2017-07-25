@@ -61,33 +61,45 @@ class PanierController extends Controller
         $session->set('commande',$articles);
               $session->set('ttc',$ttc);
 
-       
-        if( $form->isSubmitted() && $form->isValid()  )
+       /*
+        if(!$session->has('adresse'))
         {
-        
-            if ($authChecker->isGranted('IS_AUHENTIFICATED_REMEMBERED'))
-             {
-              
-                $user=$this->getUser();
-                $adrese->setUtilisateur($user);
-                $em->persist($adresse);
-                $em->flush(); 
-                $session->set('adresse',$adresse);
+          */
+          if( $form->isSubmitted() && $form->isValid()  )
+          {
+          
+              if ($authChecker->isGranted('IS_AUHENTIFICATED_REMEMBERED'))
+               {
                 
-                $paye=$this->get('multi_service_gsm_front.paypal');
-                $lien=$paye->getPaymentToken($ttc,$articles)['links'][1]->href;
-            //    return $this->redirect($this->generateUrl('multi_service_gsm_front_validation')); 
+                  $user=$this->getUser();
+                  $adrese->setUtilisateur($user);
+                  $em->persist($adresse);
+                  $em->flush(); 
+                  $session->set('adresse',$adresse);
+                  
+                  $paye=$this->get('multi_service_gsm_front.paypal');
+                  $lien=$paye->getPaymentToken($ttc,$articles)['links'][1]->href;
+              //    return $this->redirect($this->generateUrl('multi_service_gsm_front_validation')); 
 
-                return $this->render('MultiServiceGsmFrontBundle:Panier:validation.html.twig',array('produits' => $produits,'panier' => $session->get('panier'),'lien'=> $lien));
-            }
-            $paye=$this->get('multi_service_gsm_front.paypal');
-            $lien=$paye->getPaymentToken($ttc,$articles)['links'][1]->href;
-            $session->set('adresse',$adresse);
-           //  return $this->redirect($this->generateUrl('multi_service_gsm_front_validation')); 
-            
-            return $this->render('MultiServiceGsmFrontBundle:Panier:validation.html.twig',array('produits' => $produits,'panier' => $session->get('panier'),'lien'=> $lien));
-     
+                  return $this->render('MultiServiceGsmFrontBundle:Panier:validation.html.twig',array('produits' => $produits,'panier' => $session->get('panier'),'lien'=> $lien));
+              }
+              $paye=$this->get('multi_service_gsm_front.paypal');
+              $lien=$paye->getPaymentToken($ttc,$articles)['links'][1]->href;
+              $session->set('adresse',$adresse);
+             //  return $this->redirect($this->generateUrl('multi_service_gsm_front_validation')); 
+              
+              return $this->render('MultiServiceGsmFrontBundle:Panier:validation.html.twig',array('produits' => $produits,'panier' => $session->get('panier'),'lien'=> $lien));
+       
         }
+        /*
+        $paye=$this->get('multi_service_gsm_front.paypal');
+        $lien=$paye->getPaymentToken($ttc,$articles)['links'][1]->href;
+        $session->set('adresse',$adresse);
+       //  return $this->redirect($this->generateUrl('multi_service_gsm_front_validation')); 
+        
+        return $this->render('MultiServiceGsmFrontBundle:Panier:validation.html.twig',array('produits' => $produits,'panier' => $session->get('panier'),'lien'=> $lien));
+      }
+        */
 		return $this->render('MultiServiceGsmFrontBundle:Panier:livraison.html.twig', array('produits' => $produits,'panier' => $session->get('panier'),
             'form'=>$form->createView(),'adresse' => $session->get('adresse')
             ));
@@ -191,27 +203,13 @@ class PanierController extends Controller
         return $produits;
     }
 
-    public function livraison1ction()
-    {
-         $em = $this->getDoctrine()->getManager();
-         $utilisateur = $this->getUser();
-
-         $adresses=$em->getRepository('MultiServiceGsmUserBundle:Adresse')->findByUtilisateur($utilisateur);
-         $session->set('adresses',$adresses);
-         //var_dump($utilisateur);die();
-         var_dump($adresses);die();
-         return $this->render('MultiServiceGsmFrontBundle:Panier:livraison.html.twig', array('adresses' => $adresses,'adress' => $session->get('adresses') ));
-    }
+   
 
 
 
 
 
-
-
-
-
-    public function livraisonAction()
+    public function livraisonAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $utilisateur = $this->getUser();
@@ -219,12 +217,52 @@ class PanierController extends Controller
          $session = $this->get('session');
         $session->set('adresses',array());
         $adresses=$em->getRepository('MultiServiceGsmUserBundle:Adresse')->findByUtilisateur($utilisateur);
-       
+       $form=$this->createForm(AdresseType::class,$entity);
         $session->set('adresses',$adresses );
-        
+            
+          $form->handleRequest($request);
+        if($request->isMethod('POST'))
+        {
+            if ($form->isSubmitted() && ($form->isValid()) )
+            {
+                $em = $this->getDoctrine()->getManager();
+                $entity->setUtilisateur($utilisateur);
+                $em->persist($entity);
+                $em->flush();
+                return $this->redirect($this->generateUrl('multi_service_gsm_adresse_livraison'));
+            }
+        }
+     /*   
+        var_dump($adresses[0]);die();
+    */  
          return $this->render('MultiServiceGsmFrontBundle:Panier:adresseLivraison.html.twig',array('nom' => $adresses[0]->getNom(),'prenom'=>$adresses[0]->getPrenom(),'rue'=>$adresses[0]->getRue(),'complement'=>$adresses[0]->getComplement(),'ville'=>$adresses[0]->getVille(),'codepostal'=>$adresses[0] ->getCodepostal(),
-            'telephone'=>$adresses[0]->getTelephone(),'adresses' => $session->get('adresses') ));
+            'telephone'=>$adresses[0]->getTelephone(),'adresses' => $session->get('adresses'), 'form'=>$form));
+    }
+    public function livraisonOnSession()
+    {
+         $session = $this->get('session');
+        if(!$session->has('adresse'))
+        {
+            $session->set('adresse',array());
+        }
+        $adresse=$session->get('adresse');
+        if($this->get('request')->get('livraison') !=null)
+        {
+            $adresse['livraison']=$this->getRequest()->get('livraison');
+        }else{
+            return $this->redirect($this->generateUrl('multi_service_gsm_front_validation'));
+        }
     }
    
-   
+
+    public function validationAction(Request $request)
+    {
+      
+        if($request->isMethod()=='POST')
+        {
+            $this->livraisonOnSession();
+        }
+       return $this->redirect($this->generateUrl('multi_service_gsm_front_recapitulatif'));
+    }
+      
 }

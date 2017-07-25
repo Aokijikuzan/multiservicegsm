@@ -1,30 +1,34 @@
 {% set tmp = app.session.get('adresses')  %}   
-<div  class="accordion-body collapse in">
+<div  class="accordion-body collapse in" >
     <div class="accordion-inner">
         <div class="span4">
-                	<h4>Adresse de livraison et de facturation</h4>
-                	{% if app.session.get('adresses') is defined %}
-                {% for adresse in tmp %}
+                    {% if app.session.get('adresses') is defined %}
+                        <form action="{{ path('multi_service_gsm_front_validation') }}" method="POST">
+                       
+                       <h4>Adresse de livraison et de facturation</h4>
+                            {% for adresse in tmp %}
              {#}        
                     {{dump(app.session.get('adresses'))}}
+                        <form action="#" method="POST">
             {% if adresses is defined %}
          	 {{dump(adresses)}}
 
             {#} 
-
-                            <input type="radio" name="livraison" >
-                            {{ app.session.get('adresses')[0].nom }} {{ app.session.get('adresses')[0].prenom }} <br/>
-                         <label class="radio">
-                            <br/>
-                            {{app.session.get('adresses')[0].telephone}} <br/>
-                            {{ app.session.get('adresses')[0].rue }}  <br/>
-                            {{ app.session.get('adresses')[0].complement }} 
-                            <a href="#"><i class="icon-trash"></i></a>
-                        <br/>{{ app.session.get('adresses')[0].ville }}-{{ app.session.get('adresses')[0].codepostal}}
-                            <br/>
-                       </label>
-                    abb
-                 {% endfor %}
+                             <label class="radio" style="margin-top:100px;">
+                                <input type="radio" name="livraison" value="{{ app.session.get('adresses')[0].id }}" >
+                                {{ app.session.get('adresses')[0].nom }} {{ app.session.get('adresses')[0].prenom }} <br/>
+                                {{app.session.get('adresses')[0].telephone}} <br/>
+                                {{ app.session.get('adresses')[0].rue }}  <br/>
+                                {{ app.session.get('adresses')[0].complement }} 
+                                <a href="#"><i class="icon-trash"></i></a> <br/>
+                                {{ app.session.get('adresses')[0].ville }}-{{ app.session.get('adresses')[0].codepostal}}<br/>
+                           </label>
+                       
+                     {% endfor %}
+                  </form>
+                   <button  type="submit" class="btn btn-primary">Valider l'adresse</button>
+              {% else %}
+                <p>vous n'avez pas ajouter d'adresse postale dans votre profil</p>
     		{% endif %}
         
          </div>
