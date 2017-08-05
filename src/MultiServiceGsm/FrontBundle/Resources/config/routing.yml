@@ -138,5 +138,9 @@ multi_service_gsm_user_adresse:
     defaults: { _controller: MultiServiceGsmUserBundle:Adresse:add }
 
 multi_service_gsm_adresse_livraison:
-    path: /commande/adresse
+    path: /livraison/adresse
     defaults: { _controller: MultiServiceGsmFrontBundle:Panier:livraison }
+
+multi_service_gsm_adresse_livraison_suppression:
+    path: /livraison/adresse/suppresion/{id}
+    defaults: { _controller: MultiServiceGsmFrontBundle:Panier:adresseSuppression }

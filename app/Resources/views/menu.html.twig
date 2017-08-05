@@ -33,9 +33,18 @@
 							</li>
 					{% else %} <li><a href="{{path('fos_user_security_login')}}">Connexion</a></li>
 					{% endif %}
-				
+					
 			</ul>
 		 
 		</div>
 	
 </nav>
+<p><strong>
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        {#}        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} | {#}
+                <a href="{{ path('fos_user_security_logout') }}" style="margin-left:1400px;">
+                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                </a>  
+    {% endif %}
+</strong>
+</p>

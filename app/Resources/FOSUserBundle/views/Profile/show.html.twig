@@ -24,29 +24,20 @@
 							<a href=" {{path('fos_user_change_password')}}">changer votre mot de passe</a>
 						</form>
 					</div>
+				
 					<br>
-					<div style="padding-bottom:20px;" >
-						<form type="button" class="btn btn-default">
-							<a href="{{path('multi_service_gsm_user_adresse')}}">ajouter une adresse postale</a>
-						</form>
-					</div>
-					<br>
+					{#}
 					<div style="padding-bottom:20px;">
-						<form type="button" class="btn btn-secondary">
-							<a href="#">modifier votre adresse postale</a>
-						</form>
-					</div>
-					<br>
-					<div style="padding-bottom:20px;">
-						<div class="alert alert-warning">
+						<i class="fa fa-info-circle" aria-hidden="true">
 							<strong>Attention!!! l'action de supprimer votre compte  est irréversible.</strong>
-						</div>
+						</i>
 						<form type="button" class="btn btn-warning"
 							onClick="return confirm('etes vous sur(e)?')">
 							<a href="{{ path('multi_service_gsm_user_delete',{'id' : user.id } ) }}">supprimer votre compte</a>
 
 						</form>
 					</div>
+					{#}
 			{% endblock fos_user_content1 %}
 		</div>
 

@@ -18,8 +18,9 @@ class DefaultController extends Controller
 
     public function deleteUserAction(User $user)
     {
-    	$userManager = $this->container->get('fos_user.user_manager');
-        $userManager->deleteUser($user);
+    	//$userManager = $this->container->get('fos_user.user_manager');
+        $user=$this->getUser();
+      //  var_dump($user);die();
         $this->get('session')->getFlashBag()->add('success', $user->getUsername() . ' effacé');
         return $this->redirect($this->generateUrl('multi_service_gsm_front_homepage'));	
     }

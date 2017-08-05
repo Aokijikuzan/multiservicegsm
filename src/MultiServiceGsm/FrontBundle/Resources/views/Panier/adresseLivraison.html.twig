@@ -1,32 +1,37 @@
-{% set tmp = app.session.get('adresses')  %}   
+{% set tmp = app.session.get('adresse')  %}   
 <div  class="accordion-body collapse in" >
     <div class="accordion-inner">
         <div class="span4">
-                    {% if app.session.get('adresses') is defined %}
+           
+                    {% if app.session.get('adresse') is defined %}
                         <form action="{{ path('multi_service_gsm_front_validation') }}" method="POST">
                        
-                       <h4>Adresse de livraison et de facturation</h4>
-                            {% for adresse in tmp %}
+                           <h4>Adresse de livraison et de facturation</h4>
+                                {% for addresse in tmp %}
+                            
              {#}        
-                    {{dump(app.session.get('adresses'))}}
+                       {{ dump(tmp) }}
+                    {{dump(app.session.get('adresse'))}}
+           
                         <form action="#" method="POST">
-            {% if adresses is defined %}
-         	 {{dump(adresses)}}
-
             {#} 
-                             <label class="radio" style="margin-top:100px;">
-                                <input type="radio" name="livraison" value="{{ app.session.get('adresses')[0].id }}" >
-                                {{ app.session.get('adresses')[0].nom }} {{ app.session.get('adresses')[0].prenom }} <br/>
-                                {{app.session.get('adresses')[0].telephone}} <br/>
-                                {{ app.session.get('adresses')[0].rue }}  <br/>
-                                {{ app.session.get('adresses')[0].complement }} 
-                                <a href="#"><i class="icon-trash"></i></a> <br/>
-                                {{ app.session.get('adresses')[0].ville }}-{{ app.session.get('adresses')[0].codepostal}}<br/>
-                           </label>
-                       
-                     {% endfor %}
-                  </form>
-                   <button  type="submit" class="btn btn-primary">Valider l'adresse</button>
+
+                                    <label class="radio" style="margin-top:100px;">
+                                        <input type="radio" name="livraison" value="{{ app.session.get('adresse')[0].id }}" {% if loop.index0 == 0 %}checked="checked"{% endif %} >
+                                        {{ addresse.nom }} {{ addresse.prenom }} <br/>
+                                        {{addresse.telephone}} <br/>
+                                        {{ addresse.rue }}  <br/>
+                                        {{ addresse.complement }} 
+                                        <a href="{{path('multi_service_gsm_adresse_livraison_suppression', 
+                                        {'id':app.session.get('adresse')[0].id }) }}"><i class="icon-trash"></i></a> <br/>
+                                        {{addresse.ville }}-{{addresse.codepostal}}<br/>
+                                    </label>
+                            
+                                {% endfor %}
+                            <button  type="submit" class="btn btn-primary">Valider l'adresse</button>
+                      </form>
+                 {#}
+                {#}
               {% else %}
                 <p>vous n'avez pas ajouter d'adresse postale dans votre profil</p>
     		{% endif %}

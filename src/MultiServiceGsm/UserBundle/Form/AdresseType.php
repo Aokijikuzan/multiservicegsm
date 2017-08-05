@@ -2,16 +2,27 @@
 
 namespace MultiServiceGsm\UserBundle\Form;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
-class AdresseType extends AbstractType
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
+class AdresseType extends AbstractType 
 {
     private $em;
-    public function __constuct($em)
+    private $requestStack;
+    /*
+    public function __construct(EntityManagerInterface $em,RequestStack $requestStack)
     {
         $this->em=$em;
+        $this->requestStack=$requestStack;
+    }
+    */
+    public function __construct()
+    {
+       
     }
     /**
      * {@inheritdoc}

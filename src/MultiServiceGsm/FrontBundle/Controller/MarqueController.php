@@ -93,6 +93,7 @@ class MarqueController extends Controller
      * Deletes a marque entity.
      *
      */
+    /* a ne pas use
     public function deleteAction(Request $request, Marque $marque)
     {
         $form = $this->createDeleteForm($marque);
@@ -106,6 +107,7 @@ class MarqueController extends Controller
 
         return $this->redirectToRoute('marque_index');
     }
+    */
     public function deleteMarqAction(Marque $marque)
     {
      $em=$this->getDoctrine()->getManager();

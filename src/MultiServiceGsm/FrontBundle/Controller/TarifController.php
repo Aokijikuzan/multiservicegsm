@@ -23,7 +23,7 @@ class TarifController extends Controller
         $tarifs = $em->getRepository('MultiServiceGsmFrontBundle:Tarif')->findAll();
 
         return $this->render('tarif/index.html.twig', array(
-            'tarifs' => $tarifs,
+            'tarifs' => $tarifs
         ));
     }
 
@@ -105,6 +105,7 @@ class TarifController extends Controller
 
         return $this->redirectToRoute('tarif_index');
     }
+
      public function deleteTarAction(Tarif $tarif)
     {
      $em=$this->getDoctrine()->getManager();
@@ -119,6 +120,7 @@ class TarifController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
+    
     private function createDeleteForm(Tarif $tarif)
     {
         return $this->createFormBuilder()

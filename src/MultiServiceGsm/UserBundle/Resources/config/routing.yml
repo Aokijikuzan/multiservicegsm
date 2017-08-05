@@ -7,12 +7,27 @@ multi_service_gsm_user_delete:
     defaults: { _controller: MultiServiceGsmUserBundle:Default:deleteUser }
     requirements:
       id: \d+
+
 multi_service_gsm_user_adresse:
     path: /profil/adressepostale/add
     defaults: { _controller: MultiServiceGsmUserBundle:Adresse:add }
+
+multi_service_gsm_user_show_adresse:
+    path: /profil/adressepostale/show
+    defaults: { _controller: MultiServiceGsmUserBundle:Adresse:show }
+    methods:  GET
+multi_service_gsm_user_delete_adresse:
+    path: /profil/adressepostale/delete/{id}
+    defaults: { _controller: MultiServiceGsmUserBundle:Adresse:delete}
+multi_service_gsm_user_edit_adresse:
+    path: /profil/adressepostale/edit/{id}
+    defaults: { _controller: MultiServiceGsmUserBundle:Adresse:modif}
+    methods: [GET, POST]
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
