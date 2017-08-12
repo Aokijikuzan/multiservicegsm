@@ -1,6 +1,6 @@
-{% extends '::base.html.twig' %}
+{% extends "@FOSUser/layout1.html.twig" %}
 {% set compteur = 1 %}
-{% block body %}
+{% block fos_user_content %}
 	{% include '::menu.html.twig' %}
 	
 	<p class="col-md-2" ><a href="{{path('fos_user_profile_show')}}" title="Lien 1">Profil</a></p>
@@ -60,5 +60,5 @@
         </div>  
      </div>
 	{% include '::footer.html.twig' %}
-{% endblock body %}
+{% endblock fos_user_content %}
 

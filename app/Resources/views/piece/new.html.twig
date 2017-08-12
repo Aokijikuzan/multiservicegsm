@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+     {% include '::menuAction.html.twig' %} 
+    <div class="container">
+
+         <div class="row" style="margin-left:auto; margin-right:auto;">
+            <div class="col-lg-12 col-lg-offset 6">
+                <div class="well well-lg col-lg-6">
+                    <h1 style="text-align:center;">Ajouter une nouvelle pièce détachée</h1>
+
+                        {{ form_start(form) }}
+                            {{ form_widget(form) }}
+                            <input type="submit" value="Ajouter" />
+                        {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+        <ul>
+            <li>
+                <a href="{{ path('piece_index') }}">Revenir sur la liste</a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

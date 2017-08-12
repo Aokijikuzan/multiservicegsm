@@ -34,8 +34,6 @@ class PanierController extends Controller
 
        
 	}
-	
-
 
     public function recapitulatifAction(Request $request)
 	{
@@ -44,7 +42,7 @@ class PanierController extends Controller
     //    $panier=$this->get('');
         $form= $this->createForm('MultiServiceGsm\UserBundle\Form\AdresseType',$adresse); 
         $form->handleRequest($request);
-
+       
         $em = $this->getDoctrine()->getManager();
         $authChecker= $this->container->get('security.authorization_checker');
         $produits = $em->getRepository('MultiServiceGsmFrontBundle:Tarif')->findById(array_keys($session->get('panier')));
@@ -62,10 +60,26 @@ class PanierController extends Controller
                 'price'=> number_format($article->getPrix(), 2, '.',''),
                 'currency' => 'EUR');
         }
-        $articles = json_encode($articles);
-        $session->set('commande',$articles);
-              $session->set('ttc',$ttc);
+        $count=sizeof($articles)+1;
+       $articles[$count]=array('nom'=>$adresse->getNom(),
+          'prenom'=>$adresse->getPrenom(),
+          'telephone'=>$adresse->getTelephone(),
+          'rue'=>$adresse->getRue(),
+          'complement'=>$adresse->getComplement(),
+          'ville'=>$adresse->getVille(),
+          'codepostal'=>$adresse->getCodepostal()
+          );
+        //var_dump($articles);die();
+       // array_push($articles, $adresse);
+        //array_unshift($articles,$adresse);
 
+        $articles = json_encode($articles);
+       // var_dump($articles);die();
+        json_last_error();
+        $session->set('commande',$articles);
+       
+        $session->set('ttc',$ttc);
+        //$articles=json_decode($articles,true);
        /*
           */
           if( $form->isSubmitted() && $form->isValid()  )
@@ -81,7 +95,11 @@ class PanierController extends Controller
                   $em->persist($adresse);
                   $em->flush(); 
                   $session->set('adresse',$adresse);
-                  
+                 // $articles=$session->get('commande');
+                 // $articles=json_decode($articles,true);
+                 // array_push($articles, $session->get('adresse'));
+                 //  $articles = json_encode($articles);
+                 // var_dump($article);die();
                   $paye=$this->get('multi_service_gsm_front.paypal');
                   $lien=$paye->getPaymentToken($ttc,$articles)['links'][1]->href;
               //    return $this->redirect($this->generateUrl('multi_service_gsm_front_validation')); 

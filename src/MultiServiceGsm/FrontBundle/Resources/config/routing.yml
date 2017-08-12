@@ -131,6 +131,9 @@ multi_service_gsm_front_paiement_echoue:
     path: /commande/echoue/
     defaults: {_controller: MultiServiceGsmFrontBundle:Commande:paiementEchoue }
 
+multi_service_gsm_user_facture:
+    path: /profil/facture
+    defaults: { _controller: MultiServiceGsmFrontBundle:Commande:indexCommandeUser }
     
 
 multi_service_gsm_user_adresse:

@@ -21,13 +21,18 @@
 					<br>
 					<div style="padding-bottom:20px;">
 						<form type="button" class="btn btn-default">
-							<a href=" {{path('fos_user_change_password')}}">changer votre mot de passe</a>
+							<a href=" {{path('fos_user_change_password')}}">Changer votre mot de passe</a>
 						</form>
 					</div>
 				
 					<br>
-					{#}
+
 					<div style="padding-bottom:20px;">
+							<form type="button" class="btn btn-default">
+								<a href="{{ path('multi_service_gsm_user_facture')}}">Afficher votre liste de facture</a>
+							</form>
+					</div>
+					{#}
 						<i class="fa fa-info-circle" aria-hidden="true">
 							<strong>Attention!!! l'action de supprimer votre compte  est irréversible.</strong>
 						</i>
@@ -36,7 +41,6 @@
 							<a href="{{ path('multi_service_gsm_user_delete',{'id' : user.id } ) }}">supprimer votre compte</a>
 
 						</form>
-					</div>
 					{#}
 			{% endblock fos_user_content1 %}
 		</div>

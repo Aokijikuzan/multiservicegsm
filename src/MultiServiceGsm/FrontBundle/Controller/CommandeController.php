@@ -26,7 +26,7 @@ class CommandeController extends Controller
     	$commande->setUtilisateur($this->getUser());
     	$commande->setDetail("");
     	$commande->setEtat(1);
-      var_dump($session->get('adresse'));die();
+      //var_dump($session->get('adresse'));die();
     //	var_dump($commande->getDetail());die();
       $html = $this->renderView('MultiServiceGsmFrontBundle:Panier:facture.html.twig', array('date' => $commande->getDate(),'utilisateur'=> $commande->getUtilisateur(), 'detail' =>  $commande->getDetail() ,  'etat' => 	$commande->getEtat(), 'adresse'=>$adresse,'articles'=>$articles,'ttc'=>$ttc ));
          
@@ -80,5 +80,15 @@ class CommandeController extends Controller
    public function paiementEchoueAction()
    {
 
+   }
+
+
+   public function indexCommandeUserAction()
+   {
+    $em= $this->getDoctrine()->getManager();
+    $user=$this->getUser();
+    $commande =$em->getRepository('MultiServiceGsmFrontBundle:Commande')->findByUtilisateur($user);
+    var_dump($commande.detail);die();
+     return $this->render('MultiServiceGsmFrontBundle:Default:affichListFacture.html.twig',array('factures'=>$commande));
    }
 }

@@ -1,0 +1,24 @@
+piece_index:
+    path:     /
+    defaults: { _controller: "MultiServiceGsmPiecesBundle:Piece:index" }
+    methods:  GET
+
+piece_show:
+    path:     /{id}/show
+    defaults: { _controller: "MultiServiceGsmPiecesBundle:Piece:show" }
+    methods:  GET
+
+piece_new:
+    path:     /new
+    defaults: { _controller: "MultiServiceGsmPiecesBundle:Piece:new" }
+    methods:  [GET, POST]
+
+piece_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MultiServiceGsmPiecesBundle:Piece:edit" }
+    methods:  [GET, POST]
+
+piece_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MultiServiceGsmPiecesBundle:Piece:delete" }
+    methods:  DELETE
