@@ -1,6 +1,6 @@
 <?php
 
-namespace MultiServiceGsm\PiecesBundle\Form;
+namespace MultiServiceGsm\PieceBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -13,7 +13,7 @@ class PieceType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nomPiece')->add('model')->add('description')->add('prix')->add('disponible');
+        $builder->add('nomPiece')->add('prix')->add('description')->add('disponible')->add('quantite')->add('model');
     }
     
     /**
@@ -22,7 +22,7 @@ class PieceType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'MultiServiceGsm\PiecesBundle\Entity\Piece'
+            'data_class' => 'MultiServiceGsm\PieceBundle\Entity\Piece'
         ));
     }
 
@@ -31,7 +31,7 @@ class PieceType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'multiservicegsm_piecesbundle_piece';
+        return 'multiservicegsm_piecebundle_piece';
     }
 
 

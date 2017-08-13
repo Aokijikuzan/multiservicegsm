@@ -1,6 +1,6 @@
 <?php
 
-namespace MultiServiceGsm\PiecesBundle\Repository;
+namespace MultiServiceGsm\PieceBundle\Repository;
 
 /**
  * PieceRepository

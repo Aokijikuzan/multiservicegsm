@@ -1,6 +1,6 @@
 <?php
 
-namespace MultiServiceGsm\PiecesBundle\Tests\Controller;
+namespace MultiServiceGsm\PieceBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -19,7 +19,7 @@ class PieceControllerTest extends WebTestCase
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'multiservicegsm_piecesbundle_piece[field_name]'  => 'Test',
+            'multiservicegsm_piecebundle_piece[field_name]'  => 'Test',
             // ... other fields to fill
         ));
 
@@ -33,7 +33,7 @@ class PieceControllerTest extends WebTestCase
         $crawler = $client->click($crawler->selectLink('Edit')->link());
 
         $form = $crawler->selectButton('Update')->form(array(
-            'multiservicegsm_piecesbundle_piece[field_name]'  => 'Foo',
+            'multiservicegsm_piecebundle_piece[field_name]'  => 'Foo',
             // ... other fields to fill
         ));
 

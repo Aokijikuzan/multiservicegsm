@@ -1,35 +1,54 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Piece</h1>
+     {% include '::menuAction.html.twig' %} 
+    <h1 style="text-align:center;">Pièce</h1>
+    <div class="container">
+        <div class="row">
 
-    <table>
+            <table class="table table-striped table-bordered" style="border: 15px solid grey; border-spacing:10px;">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ piece.id }}</td>
+            <tr scope="row"  style=" border:1px solid grey; text-align:center;">
+                <th style="text-align:center;">Id</th>
+                <td style="text-align:center;">{{ piece.id }}</td>
             </tr>
-            <tr>
-                <th>Nompiece</th>
-                <td>{{ piece.nomPiece }}</td>
+            <tr scope="row"  style=" border:1px solid grey; text-align:center;">
+                <th style="text-align:center;">Nompiece</th>
+                <td style="text-align:center;">{{ piece.nomPiece }}</td>
             </tr>
-            <tr>
-                <th>Prix</th>
-                <td>{{ piece.prix }}</td>
+            <tr scope="row"  style=" border:1px solid grey; text-align:center;">
+                <th style="text-align:center;">Prix</th>
+                <td style="text-align:center;">{{ piece.prix }}</td>
             </tr>
+            <tr scope="row"  style=" border:1px solid grey; text-align:center;">
+                <th style="text-align:center;">Description</th>
+                <td style="text-align:center;">{{ piece.description }}</td>
+            </tr>
+            <tr scope="row"  style=" border:1px solid grey; text-align:center;">
+                <th style="text-align:center;">Disponible</th>
+                <td style="text-align:center;">{% if piece.disponible %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr scope="row"  style=" border:1px solid grey; text-align:center;">
+                <th style="text-align:center;">Quantite</th>
+                <td style="text-align:center;">{{ piece.quantite }}</td>
+            </tr>
+           
         </tbody>
     </table>
 
-    <ul>
+   <ul>
         <li>
-            <a href="{{ path('piece_index') }}">Back to the list</a>
+            <a href="{{ path('piece_index') }}">Revenir  sur la liste des pièces détachées </a>
         </li>
         <li>
-            <a href="{{ path('piece_edit', { 'id': piece.id }) }}">Edit</a>
+            <a href="{{ path('piece_edit', { 'id': piece.id }) }}">Modifier cette pièce détaché</a>
         </li>
+         <li style="text-align:center;">
+                    <a href="{{ path('piece_new') }}" >Ajouter une nouvelle pièce détaché</a>
+                </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
         </li>
     </ul>

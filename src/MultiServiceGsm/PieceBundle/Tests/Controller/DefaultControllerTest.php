@@ -1,6 +1,6 @@
 <?php
 
-namespace MultiServiceGsm\PiecesBundle\Tests\Controller;
+namespace MultiServiceGsm\PieceBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

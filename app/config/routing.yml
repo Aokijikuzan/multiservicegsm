@@ -1,6 +1,8 @@
-multi_service_gsm_pieces:
-    resource: "@MultiServiceGsmPiecesBundle/Resources/config/routing.yml"
+multi_service_gsm_piece:
+    resource: "@MultiServiceGsmPieceBundle/Resources/config/routing.yml"
     prefix:   /
+
+
 
 multi_service_gsm_user:
     resource: "@MultiServiceGsmUserBundle/Resources/config/routing.yml"

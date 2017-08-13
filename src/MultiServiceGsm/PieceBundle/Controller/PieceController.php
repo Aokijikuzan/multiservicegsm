@@ -1,8 +1,8 @@
 <?php
 
-namespace MultiServiceGsm\PiecesBundle\Controller;
+namespace MultiServiceGsm\PieceBundle\Controller;
 
-use MultiServiceGsm\PiecesBundle\Entity\Piece;
+use MultiServiceGsm\PieceBundle\Entity\Piece;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -20,7 +20,7 @@ class PieceController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $pieces = $em->getRepository('MultiServiceGsmPiecesBundle:Piece')->findAll();
+        $pieces = $em->getRepository('MultiServiceGsmPieceBundle:Piece')->findAll();
 
         return $this->render('piece/index.html.twig', array(
             'pieces' => $pieces,
@@ -34,7 +34,7 @@ class PieceController extends Controller
     public function newAction(Request $request)
     {
         $piece = new Piece();
-        $form = $this->createForm('MultiServiceGsm\PiecesBundle\Form\PieceType', $piece);
+        $form = $this->createForm('MultiServiceGsm\PieceBundle\Form\PieceType', $piece);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -72,7 +72,7 @@ class PieceController extends Controller
     public function editAction(Request $request, Piece $piece)
     {
         $deleteForm = $this->createDeleteForm($piece);
-        $editForm = $this->createForm('MultiServiceGsm\PiecesBundle\Form\PieceType', $piece);
+        $editForm = $this->createForm('MultiServiceGsm\PieceBundle\Form\PieceType', $piece);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -122,22 +122,12 @@ class PieceController extends Controller
         ;
     }
 
-    public function pieceAction()
+    
+     public function deleteIndivAction(Piece $piece)
     {
-         $em = $this->getDoctrine()->getManager();
-         $session=$this->get('session');
-         $findPiece = $em->getRepository('MultiServiceGsmPiecesBundle:Piece')->findBy(array('disponible'=> 1));
-         if(!$session->has('panier'))
-         {
-            $session->set('panier',array());
-         }else
-         {
-            $panier = $session->get('panier');
-         }
-         $nbPieceDispo= count($findPiece);
-
-         $pieceParPage=10;
-         var_dump($findPiece);die();
-         return $this->render('MultiServiceGsmPiecesBundle:Defaults:affichPiece.html.twig',array('findPiece'=>$findPiece));
+        $em=$this->getDoctrine()->getManager();
+     $em->remove($piece);
+     $em->flush();
+      return $this->redirectToRoute('piece_index');
     }
 }

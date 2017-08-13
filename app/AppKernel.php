@@ -25,7 +25,7 @@ class AppKernel extends Kernel
             //23/05/2017
           
             new  MultiServiceGsm\UserBundle\MultiServiceGsmUserBundle(),
-            new MultiServiceGsm\PiecesBundle\MultiServiceGsmPiecesBundle(),
+            new MultiServiceGsm\PieceBundle\MultiServiceGsmPieceBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

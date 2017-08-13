@@ -1,0 +1,7 @@
+multi_service_gsm_piece_piece:
+    resource: "@MultiServiceGsmPieceBundle/Resources/config/routing/piece.yml"
+    prefix:   /piece
+
+multi_service_gsm_piece_homepage:
+    path:     /
+    defaults: { _controller: MultiServiceGsmPieceBundle:Default:index }
